@@ -243,9 +243,6 @@ function initializeCards() {
         });
     });
     
-    // #region agent log
-    fetch('http://127.0.0.1:7243/ingest/98426076-8e0c-4a0a-a739-dfd8a918c6e9',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({sessionId:'debug-session',runId:'run1',hypothesisId:'S1',location:'script.js:initializeCards',message:'cards initialized',data:{cardCount:cardData.length},timestamp:Date.now()})}).catch(()=>{});
-    // #endregion
 }
 
 // Animate cards opening sequentially
@@ -255,9 +252,6 @@ function initializeAnimations() {
     
     if (cards.length === 0) return;
     
-    // #region agent log
-    fetch('http://127.0.0.1:7243/ingest/98426076-8e0c-4a0a-a739-dfd8a918c6e9',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({sessionId:'debug-session',runId:'run1',hypothesisId:'S2',location:'script.js:initializeAnimations',message:'anim init',data:{cards:cards.length,slides:slideNumbers.length},timestamp:Date.now()})}).catch(()=>{});
-    // #endregion
     
     // Set initial state
     gsap.set(cards, {
@@ -346,9 +340,6 @@ function highlightCard(index) {
         cards[index].scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
     
-    // #region agent log
-    fetch('http://127.0.0.1:7243/ingest/98426076-8e0c-4a0a-a739-dfd8a918c6e9',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({sessionId:'debug-session',runId:'run1',hypothesisId:'S3',location:'script.js:highlightCard',message:'highlight card',data:{index,cardCount:cards.length,slideCount:slideNumbers.length},timestamp:Date.now()})}).catch(()=>{});
-    // #endregion
 }
 
 // Scroll-triggered animations for sections
@@ -754,9 +745,6 @@ function openLightbox(projectId) {
     // Set title
     lightboxTitle.textContent = gallery.title;
     
-    // #region agent log
-    fetch('http://127.0.0.1:7243/ingest/98426076-8e0c-4a0a-a739-dfd8a918c6e9',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({sessionId:'debug-session',runId:'run1',hypothesisId:'H1',location:'script.js:openLightbox',message:'openLightbox start',data:{projectId,images:gallery.images},timestamp:Date.now()})}).catch(()=>{});
-    // #endregion
     // Load first image
     loadLightboxImage(0);
     
@@ -772,9 +760,6 @@ function openLightbox(projectId) {
         thumbnailsContainer.appendChild(thumbnail);
     });
     
-    // #region agent log
-    fetch('http://127.0.0.1:7243/ingest/98426076-8e0c-4a0a-a739-dfd8a918c6e9',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({sessionId:'debug-session',runId:'run1',hypothesisId:'H2',location:'script.js:openLightbox',message:'thumbnails created',data:{projectId,thumbCount:gallery.images.length},timestamp:Date.now()})}).catch(()=>{});
-    // #endregion
 
     updateLightboxCounter();
 }
@@ -790,9 +775,6 @@ function loadLightboxImage(index) {
     
     currentImageIndex = index;
     
-    // #region agent log
-    fetch('http://127.0.0.1:7243/ingest/98426076-8e0c-4a0a-a739-dfd8a918c6e9',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({sessionId:'debug-session',runId:'run1',hypothesisId:'H3',location:'script.js:loadLightboxImage',message:'load start',data:{index,img:currentGallery.images[index]},timestamp:Date.now()})}).catch(()=>{});
-    // #endregion
 
     // Show loader
     loader.style.display = 'block';
@@ -806,9 +788,6 @@ function loadLightboxImage(index) {
         loader.style.display = 'none';
         lightboxImage.style.opacity = '1';
         
-        // #region agent log
-        fetch('http://127.0.0.1:7243/ingest/98426076-8e0c-4a0a-a739-dfd8a918c6e9',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({sessionId:'debug-session',runId:'run1',hypothesisId:'H4',location:'script.js:loadLightboxImage',message:'load success',data:{index,src:this.src},timestamp:Date.now()})}).catch(()=>{});
-        // #endregion
 
         // Update thumbnails
         thumbnails.forEach((thumb, i) => {
@@ -822,9 +801,6 @@ function loadLightboxImage(index) {
         updateLightboxCounter();
     };
     img.onerror = function() {
-        // #region agent log
-        fetch('http://127.0.0.1:7243/ingest/98426076-8e0c-4a0a-a739-dfd8a918c6e9',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({sessionId:'debug-session',runId:'run1',hypothesisId:'H5',location:'script.js:loadLightboxImage',message:'load error',data:{index,src:currentGallery.images[index]},timestamp:Date.now()})}).catch(()=>{});
-        // #endregion
     };
     img.src = currentGallery.images[index];
 }
