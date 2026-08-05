@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="HG DIENSTVERLENING - Professioneel bouwbedrijf in Arnhem, Nijmegen & Gelderland. Verbouwing, renovatie, plafondsystemen. 15+ jaar ervaring. Gratis offerte! KvK: 97940879">
+    <meta name="keywords" content="bouwbedrijf, verbouwing, renovatie, plafond, Arnhem, Nijmegen, Gelderland, HG Dienstverlening, aannemer">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <link rel="canonical" href="/">
+    <meta name="theme-color" content="#1a2332">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="/">
+    <meta property="og:title" content="HG DIENSTVERLENING - Bouwbedrijf voor Verbouw & Renovatie">
+    <meta property="og:description" content="Professioneel bouwbedrijf gespecialiseerd in verbouwing, renovatie en plafond systemen.">
+    <meta property="og:image" content="assets/images/hg-logo.png">
+    <meta property="og:image:alt" content="HG Dienstverlening logo">
+    <meta property="og:site_name" content="HG DIENSTVERLENING">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="HG DIENSTVERLENING - Bouwbedrijf">
+    <meta name="twitter:description" content="Professioneel bouwbedrijf voor verbouwing en renovatie">
+    <meta name="twitter:image" content="assets/images/hg-logo.png">
+    <meta name="twitter:image:alt" content="HG Dienstverlening logo">
+    
+    <link rel="icon" type="image/png" href="assets/images/favicon.png" sizes="32x32">
+    <link rel="apple-touch-icon" href="assets/images/favicon.png">
+    <title>HG DIENSTVERLENING - Bouwbedrijf voor Verbouw & Renovatie</title>
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "HG DIENSTVERLENING",
+      "description": "Professioneel bouwbedrijf gespecialiseerd in verbouwing, renovatie en plafond systemen.",
+      "url": "/",
+      "logo": "assets/images/hg-logo.png",
+      "image": "assets/images/hg-logo.png",
+      "telephone": "+31 6 19009743",
+      "email": "hgdienstverleningbouw@outlook.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "NL"
+      },
+      "areaServed": "Nederland",
+      "sameAs": []
+    }
+    </script>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-background"></div>
+        <div class="header-content">
+            <a href="#home" class="header-logo-link">
+                <div class="header-logo">
+                    <img
+                        src="assets/images/hg-logo.png"
+                        alt="HG Dienstverlening logo"
+                        class="header-logo-image"
+                        loading="eager"
+                        decoding="async"
+                    >
+                </div>
+            </a>
+            <nav class="navigation">
+                <button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <div class="menu">
+                    <a href="#home" class="nav-link">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                        </svg>
+                        <span>Home</span>
+                    </a>
+                    <a href="#diensten" class="nav-link">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+                        </svg>
+                        <span>Diensten</span>
+                    </a>
+                    <a href="#projecten" class="nav-link">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="9" y1="3" x2="9" y2="21"></line>
+                        </svg>
+                        <span>Projecten</span>
+                    </a>
+                    <a href="#about" class="nav-link">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                        <span>Over ons</span>
+                    </a>
+                    <a href="#contact" class="nav-link">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                        </svg>
+                        <span>Contact</span>
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">HG DIENSTVERLENING</h1>
+            <p class="hero-subtitle">Jouw betrouwbare partner voor verbouwing & renovatie</p>
+            <div class="hero-cta">
+                <a href="#contact" class="cta-button primary">Gratis Offerte Aanvragen</a>
+                <a href="https://wa.me/31619009743" class="cta-button secondary" target="_blank" rel="noopener">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                    </svg>
+                    WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section (Modern) -->
+    <section id="diensten" class="modern-services">
+        <div class="modern-services-header">
+            <p class="eyebrow">Wat we voor je doen</p>
+            <h2>Onze Expertises</h2>
+            <p class="subtitle">Van ontwerp tot afwerking. Eén team, korte lijnen, strakke planning.</p>
+        </div>
+        <div class="modern-services-grid">
+            <article class="modern-service-card">
+                <div class="modern-service-icon">🏗️</div>
+                <h3>Complete Verbouwing</h3>
+                <p>Totale make-over van woning of kantoor. Van sloop tot oplevering, wij regelen alles.</p>
+                <div class="modern-tags">
+                    <span class="tag">Projectbeheer</span>
+                    <span class="tag">Strakke planning</span>
+                </div>
+            </article>
+            <article class="modern-service-card">
+                <div class="modern-service-icon">🔧</div>
+                <h3>Renovatie & Upgrade</h3>
+                <p>Oude ruimtes nieuw leven inblazen met moderne afwerking en behoud van karakter.</p>
+                <div class="modern-tags">
+                    <span class="tag">Interieur</span>
+                    <span class="tag">Installaties</span>
+                </div>
+            </article>
+            <article class="modern-service-card">
+                <div class="modern-service-icon">🏠</div>
+                <h3>Plafondsystemen</h3>
+                <p>Strakke plafonds met slimme LED’s en akoestische oplossingen voor elke ruimte.</p>
+                <div class="modern-tags">
+                    <span class="tag">LED</span>
+                    <span class="tag">Akoestiek</span>
+                </div>
+            </article>
+            <article class="modern-service-card">
+                <div class="modern-service-icon">🛠️</div>
+                <h3>Onderhoud & Service</h3>
+                <p>Kleine reparatie of groot onderhoud? We staan klaar met snelle opvolging.</p>
+                <div class="modern-tags">
+                    <span class="tag">Spoed</span>
+                    <span class="tag">Nazorg</span>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projecten" class="projects-section">
+        <h2 class="section-title">Onze Projecten</h2>
+        <div class="projects-grid">
+            <div class="project-card" data-project="amsterdam">
+                <div class="project-image-container">
+                    <img src="assets/images/amsterdam-1.jpeg" 
+                         alt="Moderne systeem plafond kantoorgebouw Amsterdam" 
+                         class="project-image"
+                         loading="lazy"
+                         onerror="this.src='https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80'">
+                    <div class="project-overlay">
+                        <button class="view-gallery-btn" data-project="amsterdam" aria-label="Bekijk galerij">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                                <polyline points="21 15 16 10 5 21"></polyline>
+                            </svg>
+                            Bekijk Galerij
+                        </button>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>Kantoorgebouw Amsterdam</h3>
+                    <p>Voor dit moderne kantoor in het centrum hebben we een strak plafond geïnstalleerd met slimme LED verlichting. Het resultaat? Een professionele uitstraling en veel energiebesparing.</p>
+                    <div class="project-tags">
+                        <span class="tag">Plafond Systemen</span>
+                        <span class="tag">LED Verlichting</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card" data-project="arnhem">
+                <div class="project-image-container">
+                    <img src="assets/images/Arnhem-1.jpeg" 
+                         alt="Aanbouw project Arnhem" 
+                         class="project-image"
+                         loading="lazy">
+                    <div class="project-overlay">
+                        <button class="view-gallery-btn" data-project="arnhem" aria-label="Bekijk galerij">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                                <polyline points="21 15 16 10 5 21"></polyline>
+                            </svg>
+                            Bekijk Galerij
+                        </button>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>Aanbouw Arnhem</h3>
+                    <p>Uitbreiding met een strakke aanbouw, nieuwe constructie en naadloze aansluiting op de bestaande woning. Meer ruimte, licht en comfort.</p>
+                    <div class="project-tags">
+                        <span class="tag">Aanbouw</span>
+                        <span class="tag">Constructie</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card" data-project="renkum">
+                <div class="project-image-container">
+                    <img src="assets/images/projects/renkum/renkum-1.jpeg" 
+                         alt="Garagebouw Renkum" 
+                         class="project-image"
+                         loading="lazy">
+                    <div class="project-overlay">
+                        <button class="view-gallery-btn" data-project="renkum" aria-label="Bekijk galerij">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                                <polyline points="21 15 16 10 5 21"></polyline>
+                            </svg>
+                            Bekijk Galerij
+                        </button>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>Garagebouw Renkum</h3>
+                    <p>Realisatie van een stevige en functionele garage op maat, perfect voor opslag of als werkruimte. Duurzame materialen en efficiënte bouw.</p>
+                    <div class="project-tags">
+                        <span class="tag">Nieuwbouw</span>
+                        <span class="tag">Garage</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card" data-project="zevenaar">
+                <div class="project-image-container">
+                    <img src="assets/images/projects/zevenaar/zevenaar-1.jpeg" 
+                         alt="Kantoorverbouwing Zevenaar" 
+                         class="project-image"
+                         loading="lazy">
+                    <div class="project-overlay">
+                        <button class="view-gallery-btn" data-project="zevenaar" aria-label="Bekijk galerij">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                                <polyline points="21 15 16 10 5 21"></polyline>
+                            </svg>
+                            Bekijk Galerij
+                        </button>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>Kantoorverbouwing Zevenaar</h3>
+                    <p>Moderne transformatie van een kantoorruimte in Zevenaar. Nieuwe indeling, verlichting en een frisse look voor een productieve werkomgeving.</p>
+                    <div class="project-tags">
+                        <span class="tag">Kantoor</span>
+                        <span class="tag">Interieur</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox Gallery Modal -->
+    <div class="lightbox-modal" id="lightboxModal" aria-hidden="true" role="dialog">
+        <div class="lightbox-content">
+            <button class="lightbox-close" aria-label="Sluit galerij">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+            <button class="lightbox-prev" aria-label="Vorige afbeelding">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+            </button>
+            <button class="lightbox-next" aria-label="Volgende afbeelding">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+            </button>
+            <div class="lightbox-image-container">
+                <img class="lightbox-image" src="" alt="" id="lightboxImage">
+                <div class="lightbox-loader"></div>
+            </div>
+            <div class="lightbox-info">
+                <h3 class="lightbox-title"></h3>
+                <p class="lightbox-counter"></p>
+            </div>
+            <div class="lightbox-thumbnails" id="lightboxThumbnails"></div>
+        </div>
+    </div>
+
+    <!-- Trust Section -->
+    <section class="trust-section">
+        <div class="trust-stats">
+            <div class="stat-item">
+                <div class="stat-number" data-target="15">0</div>
+                <div class="stat-label">Jaar Ervaring</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" data-target="500">0</div>
+                <div class="stat-label">Projecten Voltooid</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" data-target="98">0</div>
+                <div class="stat-label">% Tevreden Klanten</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" data-target="24">0</div>
+                <div class="stat-label">Uur Service</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <h2 class="section-title">Over Ons</h2>
+        <div class="about-content">
+            <p>HG DIENSTVERLENING - dat zijn wij, een team van ervaren vakmensen die passie hebben voor bouw en renovatie. Al meer dan 15 jaar helpen we mensen en bedrijven met verbouwingen, van kleine klusjes tot grote projecten.</p>
+            <p>Wat ons onderscheidt? We luisteren echt naar wat je nodig hebt, denken mee over praktische oplossingen en zorgen dat alles netjes en op tijd klaar is. Of het nu gaat om een nieuw plafond, complete renovatie of onderhoud - we pakken het aan met dezelfde zorg en aandacht.</p>
+            <p>We werken door heel Nederland, maar vooral in de Randstad. Amsterdam, Rotterdam, Utrecht - daar kennen we de weg. En als je verder weg woont? Dan komen we gewoon langs, want een goed project is het waard.</p>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <h2 class="section-title">Veelgestelde Vragen</h2>
+        <div class="faq-container">
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    <span>Hoe lang duurt een gemiddeld project?</span>
+                    <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </button>
+                <div class="faq-answer">
+                    <p>Dat hangt helemaal af van wat je wilt. Een simpele plafond installatie? Meestal binnen een week klaar. Een complete verbouwing? Dan praten we over 6 tot 12 weken, afhankelijk van wat er allemaal moet gebeuren. Tijdens het eerste gesprek geven we je een eerlijke inschatting - we beloven geen dingen die we niet waar kunnen maken.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    <span>Bieden jullie garantie op jullie werk?</span>
+                    <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </button>
+                <div class="faq-answer">
+                    <p>Absoluut! Op al ons werk geven we minimaal 2 jaar garantie. Als er iets is dat niet goed gaat (wat gelukkig zelden voorkomt), dan lossen we dat gewoon op. Voor bepaalde installaties zoals plafond systemen geven we zelfs langer garantie. We staan achter ons werk, dat is belangrijk voor ons.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    <span>Kunnen jullie ook helpen met vergunningen?</span>
+                    <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </button>
+                <div class="faq-answer">
+                    <p>Ja hoor, we helpen je graag met vergunningen. We weten uit ervaring welke vergunningen je nodig hebt en kunnen je daarbij adviseren. Soms kunnen we het zelfs voor je regelen, of we werken samen met mensen die dat voor ons doen. Het scheelt je een hoop gedoe!</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    <span>Wat zijn jullie werkgebieden?</span>
+                    <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </button>
+                <div class="faq-answer">
+                    <p>Ons thuisgebied is de Randstad - Amsterdam, Rotterdam, Utrecht en alles daar tussenin. Maar we zijn flexibel! Voor grotere projecten rijden we best verder. Bel of app gewoon even, dan kijken we samen wat mogelijk is. We zeggen niet snel nee tegen een mooi project.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <h2 class="section-title">Contact</h2>
+        <div class="contact-content">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <strong>Telefoon:</strong>
+                    <a href="tel:+31619009743" class="contact-link">+31 6 19009743</a>
+                </div>
+                <div class="contact-item">
+                    <strong>Email:</strong>
+                    <a href="mailto:hgdienstverleningbouw@outlook.com" class="contact-link">hgdienstverleningbouw@outlook.com</a>
+                </div>
+                <div class="contact-item">
+                    <strong>WhatsApp:</strong>
+                    <a href="https://wa.me/31619009743" class="contact-link" target="_blank" rel="noopener">+31 6 19009743</a>
+                </div>
+                <div class="contact-item">
+                    <strong>Bereikbaar:</strong>
+                    <p class="contact-hours">Ma-Vr: 08:00 - 18:00<br>Za: 09:00 - 16:00</p>
+                </div>
+            </div>
+            <form class="contact-form" id="contactForm">
+                <div class="form-group">
+                    <input type="text" id="name" name="name" placeholder="Je naam *" required aria-label="Je naam">
+                    <span class="error-message" id="nameError"></span>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="email" name="email" placeholder="Je email *" required aria-label="Je email">
+                    <span class="error-message" id="emailError"></span>
+                </div>
+                <div class="form-group">
+                    <input type="tel" id="phone" name="phone" placeholder="Je telefoonnummer (optioneel)" aria-label="Je telefoonnummer">
+                </div>
+                <div class="form-group">
+                    <select id="projectType" name="projectType" aria-label="Type project">
+                        <option value="">Type Project</option>
+                        <option value="verbouwing">Verbouwing</option>
+                        <option value="renovatie">Renovatie</option>
+                        <option value="plafond">Plafond Systemen</option>
+                        <option value="onderhoud">Onderhoud</option>
+                        <option value="anders">Anders</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <textarea id="message" name="message" placeholder="Vertel ons over je project... *" rows="4" required aria-label="Je bericht"></textarea>
+                    <span class="error-message" id="messageError"></span>
+                </div>
+                <button type="submit" class="submit-btn">
+                    <span class="btn-text">Verstuur</span>
+                    <span class="btn-loader" style="display: none;">Verzenden...</span>
+                </button>
+                <div class="form-success" id="formSuccess" style="display: none;">
+                    ✓ Bedankt! We nemen zo snel mogelijk contact met u op.
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img
+                    src="assets/images/hg-logo.png"
+                    alt="HG Dienstverlening logo"
+                    class="footer-logo-image"
+                    loading="lazy"
+                    decoding="async"
+                >
+            </div>
+            <p class="footer-text">BOUWBEDRIJF VOOR VERBOUW & RENOVATIE</p>
+            <div class="footer-info">
+                <p>KvK: 97940879</p>
+                <p>BTW: NL005297866B17</p>
+            </div>
+            <div class="footer-social">
+                <a class="social-icon" href="#" aria-label="Facebook" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M22 12.07C22 6.48 17.52 2 11.93 2S2 6.48 2 12.07c0 5.03 3.66 9.2 8.44 9.93v-7.02H8.08v-2.9h2.36V9.41c0-2.34 1.39-3.63 3.52-3.63 1.02 0 2.09.18 2.09.18v2.3h-1.18c-1.16 0-1.52.72-1.52 1.46v1.75h2.59l-.41 2.9h-2.18V22c4.78-.73 8.44-4.9 8.44-9.93z"/>
+                    </svg>
+                </a>
+                <a class="social-icon" href="#" aria-label="Instagram" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4Zm0 2a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H7Zm11.25 1.25a1.25 1.25 0 1 1-2.5 0a1.25 1.25 0 0 1 2.5 0ZM12 8.5A3.5 3.5 0 1 1 8.5 12A3.5 3.5 0 0 1 12 8.5Zm0 2a1.5 1.5 0 1 0 1.5 1.5A1.5 1.5 0 0 0 12 10.5Z"/>
+                    </svg>
+                </a>
+            </div>
+            <p class="footer-copyright">&copy; 2024 HG DIENSTVERLENING. Alle rechten voorbehouden.</p>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/31619009743" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Contacteer ons via WhatsApp">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+        </svg>
+    </a>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" aria-label="Terug naar boven" style="display: none;">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
