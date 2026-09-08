@@ -182,7 +182,14 @@ footer a:hover{color:var(--accent)}
 @media(max-width:640px){
   .projects-grid{grid-template-columns:1fr}
   .contact-grid{grid-template-columns:1fr}
-  .section{padding:60px 0}
+  .section{padding:52px 0}
+  .section-head{margin-bottom:28px}
+  .hero{min-height:70vh}
+  .about-grid img{min-height:220px}
+  footer{padding:44px 0 24px}
+  /* Horizontale swipe-carousels — kortere mobiele pagina */
+  .services-grid,.steps,.t-grid{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -24px;padding:0 24px 8px;-webkit-overflow-scrolling:touch}
+  .service,.step,.t-card{flex:0 0 82%;scroll-snap-align:start;opacity:1!important;transform:none!important}
 }
 /* Sticky mobiele call-bar */
 .mobile-callbar{display:none;position:fixed;bottom:0;left:0;right:0;z-index:200;background:#0f172a;border-top:1px solid rgba(255,255,255,.1);padding:10px 14px;box-shadow:0 -4px 20px rgba(0,0,0,.18)}
@@ -344,8 +351,7 @@ html.js .service,html.js .step,html.js .project,html.js .k-card,html.js .t-card,
       <div>
         <div class="label">Over ons</div>
         <h2>Vakmanschap met passie</h2>
-        <p>HG DIENSTVERLENING — een team van ervaren vakmensen met passie voor renovatie en aanbouw. Onze vakmensen hebben samen meer dan 10 jaar ervaring in verbouwing en renovatie, van kleine klussen tot complete projecten.</p>
-        <p>Onze werkbasis is Arnhem; van daaruit bedienen we huiseigenaren in de hele regio Gelderland — van Presikhaaf tot Oosterbeek, van Velp tot Renkum. We luisteren echt naar wat u nodig heeft en zorgen dat alles netjes en op tijd klaar is.</p>
+        <p>HG Dienstverlening is een team van ervaren vakmensen voor renovatie, verbouwing en aanbouw. Onze werkbasis is Arnhem; van daaruit bedienen we huiseigenaren in heel Gelderland — altijd met een vaste prijs, één aanspreekpunt en 2 jaar garantie.</p>
       </div>
     </div>
   </div>
@@ -382,10 +388,6 @@ html.js .service,html.js .step,html.js .project,html.js .k-card,html.js .t-card,
       <details class="faq-item"><summary>In welke wijken van Arnhem komen jullie?</summary><p>We werken door heel Arnhem en omgeving — onder andere in Presikhaaf, Malburgen, Klarendal, Kronenburg, Schuytgraaf, Elderveld en Rijkerswoerd, plus Elst, Velp, Oosterbeek, Zevenaar en Renkum. Voor grotere projecten rijden we graag verder.</p></details>
       <details class="faq-item"><summary>Heb ik een vergunning nodig voor een aanbouw?</summary><p>Vaak wel, afhankelijk van de grootte en locatie. Bij een aanbouw of uitbouw adviseren we welke omgevingsvergunning nodig is en kunnen de aanvraag voor u regelen.</p></details>
       <details class="faq-item"><summary>Krijg ik een vaste prijs of een schatting?</summary><p>U ontvangt een duidelijke offerte met een vaste prijs. Zo weet u vooraf precies waar u aan toe bent — geen verrassingen achteraf.</p></details>
-    </div>
-    <div class="cta-band" style="margin-top:32px;border-radius:14px">
-      <p>Nog vragen over uw project? Bel of app ons — we geven vandaag antwoord.</p>
-      <a href="#contact">Neem contact op</a>
     </div>
   </div>
 </section>
