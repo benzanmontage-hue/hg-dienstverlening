@@ -208,6 +208,23 @@ html.js .service,html.js .step,html.js .project,html.js .k-card,html.js .t-card,
 .cta-band p{font-family:var(--head);font-weight:800;font-size:1.2rem;margin-bottom:14px}
 .cta-band a{display:inline-block;background:#0f172a;color:#fff;padding:14px 28px;border-radius:10px;font-weight:700;text-decoration:none}
 @media(max-width:640px){section[id]{scroll-margin-top:76px}}
+
+/* SLIDESHOW */
+.slideshow{position:relative;max-width:860px;margin:0 auto;border-radius:16px;overflow:hidden;box-shadow:0 24px 60px rgba(15,23,42,.16)}
+.slideshow .slides{position:relative;height:0;padding-bottom:62%;max-height:560px}
+.slide{position:absolute;inset:0;opacity:0;transition:opacity .7s ease}
+.slide.active{opacity:1}
+.slide img{width:100%;height:100%;object-fit:cover}
+.slide-cap{position:absolute;left:0;right:0;bottom:0;padding:44px 24px 20px;background:linear-gradient(transparent,rgba(15,23,42,.88));color:#fff}
+.slide-cap h3{font-family:var(--head);font-weight:700;font-size:1.25rem}
+.slide-cap p{color:rgba(255,255,255,.82);font-size:.9rem;margin-top:3px}
+.ss-prev,.ss-next{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;background:rgba(15,23,42,.5);color:#fff;border:none;cursor:pointer;font-size:1.25rem;line-height:1;z-index:4;transition:background .2s}
+.ss-prev{left:14px}.ss-next{right:14px}
+.ss-prev:hover,.ss-next:hover{background:var(--accent)}
+.ss-dots{position:absolute;bottom:14px;right:18px;display:flex;gap:7px;z-index:4}
+.ss-dots button{width:9px;height:9px;border-radius:50%;border:none;background:rgba(255,255,255,.55);cursor:pointer;padding:0}
+.ss-dots button.active{background:var(--accent);transform:scale(1.25)}
+@media(max-width:640px){.ss-prev,.ss-next{width:36px;height:36px;font-size:1rem}}
 </style>
 </head>
 <body>
@@ -297,20 +314,25 @@ html.js .service,html.js .step,html.js .project,html.js .k-card,html.js .t-card,
       <h2>Een greep uit ons werk</h2>
       <p class="sub">Echte projecten uit de regio — meer foto's en projectdetails volgen binnenkort.</p>
     </div>
-    <div class="projects-grid">
-      <div class="project"><img src="amsterdam-1.jpeg" alt="Woningrenovatie" loading="lazy"><div class="body"><h3>Woningrenovatie</h3><p>Complete renovatie van een woning: nieuwe indeling, moderne afwerking en behoud van authentieke details.</p><div class="tags"><span class="tag">Renovatie</span><span class="tag">Interieur</span></div></div></div>
-      <div class="project"><img src="Arnhem-1.jpeg" alt="Aanbouw Arnhem" loading="lazy"><div class="body"><h3>Aanbouw Arnhem</h3><p>Uitbreiding met een strakke aanbouw, nieuwe constructie en naadloze aansluiting op de bestaande woning.</p><div class="tags"><span class="tag">Aanbouw</span><span class="tag">Constructie</span></div></div></div>
-      <div class="project"><img src="Arnhem-3.jpeg" alt="Garagebouw Renkum" loading="lazy"><div class="body"><h3>Garagebouw Renkum</h3><p>Realisatie van een stevige garage op maat, perfect voor opslag of als werkruimte.</p><div class="tags"><span class="tag">Nieuwbouw</span><span class="tag">Garage</span></div></div></div>
-      <div class="project"><img src="Arnhem-4.jpeg" alt="Kantoorverbouwing Zevenaar" loading="lazy"><div class="body"><h3>Kantoorverbouwing Zevenaar</h3><p>Moderne transformatie van een kantoorruimte: nieuwe indeling en frisse look.</p><div class="tags"><span class="tag">Kantoor</span><span class="tag">Interieur</span></div></div></div>
-      <div class="project"><img src="doetinchem/doetinchem-1.jpg" alt="Woningrenovatie Doetinchem" loading="lazy"><div class="body"><h3>Woningrenovatie Doetinchem</h3><p>Complete renovatie van een woning in Doetinchem.</p><div class="tags"><span class="tag">Renovatie</span><span class="tag">Doetinchem</span></div></div></div>
-      <div class="project"><img src="doetinchem/doetinchem-2.jpg" alt="Verbouwing Doetinchem" loading="lazy"><div class="body"><h3>Verbouwing Doetinchem</h3><p>Verbouwing van een woning in de regio Doetinchem.</p><div class="tags"><span class="tag">Verbouwing</span><span class="tag">Doetinchem</span></div></div></div>
-      <div class="project"><img src="doetinchem/doetinchem-3.jpg" alt="Interieur verbouwing Doetinchem" loading="lazy"><div class="body"><h3>Interieur verbouwing</h3><p>Interieurverbouwing: moderne afwerking van leefruimtes.</p><div class="tags"><span class="tag">Interieur</span><span class="tag">Doetinchem</span></div></div></div>
-      <div class="project"><img src="doetinchem/doetinchem-4.jpg" alt="Aanbouw Doetinchem" loading="lazy"><div class="body"><h3>Aanbouw Doetinchem</h3><p>Aanbouw en uitbouw van een woning in Doetinchem.</p><div class="tags"><span class="tag">Aanbouw</span><span class="tag">Doetinchem</span></div></div></div>
-      <div class="project"><img src="dak/dak-1.jpg" alt="Dakrenovatie" loading="lazy"><div class="body"><h3>Dakrenovatie</h3><p>Vakkundige dakrenovatie.</p><div class="tags"><span class="tag">Dak</span><span class="tag">Renovatie</span></div></div></div>
-      <div class="project"><img src="dak/dak-2.jpg" alt="Dakisolatie" loading="lazy"><div class="body"><h3>Dakisolatie</h3><p>Dakisolatie voor een energiezuinig huis.</p><div class="tags"><span class="tag">Dak</span><span class="tag">Isolatie</span></div></div></div>
-      <div class="project"><img src="dak/dak-3.jpg" alt="Dakproject" loading="lazy"><div class="body"><h3>Dakproject</h3><p>Dakwerk project.</p><div class="tags"><span class="tag">Dak</span></div></div></div>
-      <div class="project"><img src="dak/dak-4.jpg" alt="Nieuw dak" loading="lazy"><div class="body"><h3>Nieuw dak</h3><p>Nieuwe dakbedekking, netjes afgewerkt.</p><div class="tags"><span class="tag">Dak</span><span class="tag">Nieuwbouw</span></div></div></div>
-      <div class="project"><img src="dak/dak-5.jpg" alt="Dakwerk & goten" loading="lazy"><div class="body"><h3>Dakwerk & goten</h3><p>Dakonderhoud en dakgoten.</p><div class="tags"><span class="tag">Dak</span><span class="tag">Onderhoud</span></div></div></div>
+    <div class="slideshow" id="projectSlideshow" role="region" aria-label="Projectfoto's">
+      <div class="slides">
+        <div class="slide active"><img src="amsterdam-1.jpeg" alt="Woningrenovatie"><div class="slide-cap"><h3>Woningrenovatie</h3><p>Complete renovatie van een woning: nieuwe indeling, moderne afwerking.</p></div></div>
+        <div class="slide"><img src="Arnhem-1.jpeg" alt="Aanbouw Arnhem"><div class="slide-cap"><h3>Aanbouw Arnhem</h3><p>Uitbreiding met een strakke aanbouw, naadloos aangesloten op de woning.</p></div></div>
+        <div class="slide"><img src="Arnhem-3.jpeg" alt="Garagebouw Renkum"><div class="slide-cap"><h3>Garagebouw Renkum</h3><p>Realisatie van een stevige garage op maat.</p></div></div>
+        <div class="slide"><img src="Arnhem-4.jpeg" alt="Kantoorverbouwing Zevenaar"><div class="slide-cap"><h3>Kantoorverbouwing Zevenaar</h3><p>Moderne transformatie van een kantoorruimte.</p></div></div>
+        <div class="slide"><img src="doetinchem/doetinchem-1.jpg" alt="Woningrenovatie Doetinchem"><div class="slide-cap"><h3>Woningrenovatie Doetinchem</h3><p>Complete renovatie van een woning in Doetinchem.</p></div></div>
+        <div class="slide"><img src="doetinchem/doetinchem-2.jpg" alt="Verbouwing Doetinchem"><div class="slide-cap"><h3>Verbouwing Doetinchem</h3><p>Verbouwing van een woning in de regio Doetinchem.</p></div></div>
+        <div class="slide"><img src="doetinchem/doetinchem-3.jpg" alt="Interieur verbouwing"><div class="slide-cap"><h3>Interieur verbouwing</h3><p>Interieurverbouwing: moderne afwerking van leefruimtes.</p></div></div>
+        <div class="slide"><img src="doetinchem/doetinchem-4.jpg" alt="Aanbouw Doetinchem"><div class="slide-cap"><h3>Aanbouw Doetinchem</h3><p>Aanbouw en uitbouw van een woning in Doetinchem.</p></div></div>
+        <div class="slide"><img src="dak/dak-1.jpg" alt="Dakrenovatie"><div class="slide-cap"><h3>Dakrenovatie</h3><p>Vakkundige dakrenovatie.</p></div></div>
+        <div class="slide"><img src="dak/dak-2.jpg" alt="Dakisolatie"><div class="slide-cap"><h3>Dakisolatie</h3><p>Dakisolatie voor een energiezuinig huis.</p></div></div>
+        <div class="slide"><img src="dak/dak-3.jpg" alt="Dakproject"><div class="slide-cap"><h3>Dakproject</h3><p>Dakwerk project.</p></div></div>
+        <div class="slide"><img src="dak/dak-4.jpg" alt="Nieuw dak"><div class="slide-cap"><h3>Nieuw dak</h3><p>Nieuwe dakbedekking, netjes afgewerkt.</p></div></div>
+        <div class="slide"><img src="dak/dak-5.jpg" alt="Dakwerk & goten"><div class="slide-cap"><h3>Dakwerk & goten</h3><p>Dakonderhoud en dakgoten.</p></div></div>
+      </div>
+      <button class="ss-prev" aria-label="Vorige foto">&#10094;</button>
+      <button class="ss-next" aria-label="Volgende foto">&#10095;</button>
+      <div class="ss-dots" role="tablist"></div>
     </div>
   </div>
 </section>
@@ -462,8 +484,39 @@ function toggleMenu(force){
 }
 hamburger.addEventListener('click',()=>toggleMenu());
 document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>toggleMenu(false)));
+// SLIDESHOW
+(function(){
+  var ss=document.getElementById('projectSlideshow');
+  if(!ss) return;
+  var slides=ss.querySelectorAll('.slide');
+  var dotsWrap=ss.querySelector('.ss-dots');
+  var idx=0, timer;
+  slides.forEach(function(_,i){
+    var b=document.createElement('button');
+    b.setAttribute('aria-label','Foto '+(i+1));
+    b.addEventListener('click',function(){go(i);restart();});
+    dotsWrap.appendChild(b);
+  });
+  var dots=dotsWrap.querySelectorAll('button');
+  function go(i){
+    slides[idx].classList.remove('active');
+    dots[idx].classList.remove('active');
+    idx=(i+slides.length)%slides.length;
+    slides[idx].classList.add('active');
+    dots[idx].classList.add('active');
+  }
+  function next(){go(idx+1);}
+  function prev(){go(idx-1);}
+  function restart(){clearInterval(timer);timer=setInterval(next,5000);}
+  ss.querySelector('.ss-next').addEventListener('click',function(){next();restart();});
+  ss.querySelector('.ss-prev').addEventListener('click',function(){prev();restart();});
+  go(0);
+  timer=setInterval(next,5000);
+  ss.addEventListener('mouseenter',function(){clearInterval(timer);});
+  ss.addEventListener('mouseleave',function(){restart();});
+})();
 const io=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.style.opacity=1;x.target.style.transform='none';io.unobserve(x.target)}})},{threshold:.1});
-document.querySelectorAll('.service,.step,.project,.k-card,.t-card,.about-grid,.faq-item,form,.contact-info').forEach(el=>{io.observe(el)});
+document.querySelectorAll('.service,.step,.k-card,.t-card,.about-grid,.faq-item,form,.contact-info').forEach(el=>{io.observe(el)});
 </script>
 </body>
 </html>
