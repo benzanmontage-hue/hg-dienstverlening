@@ -18,7 +18,7 @@
 <meta name="twitter:description" content="Specialist in renovatie, verbouwing & aanbouw. Gratis offerte!">
 <meta name="twitter:image" content="https://hg-dienstverlening.nl/hg-logo.png">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"GeneralContractor","name":"HG Dienstverlening","description":"Aannemersbedrijf voor renovatie, verbouwing en aanbouw in Arnhem en heel Nederland.","telephone":"+31619009743","email":"hgdienstverleningbouw@outlook.com","url":"https://hg-dienstverlening.nl/","image":"https://hg-dienstverlening.nl/hg-logo.png","priceRange":"€€","address":{"@type":"PostalAddress","streetAddress":"Vleutenstraat 88","postalCode":"1106 CX","addressLocality":"Amsterdam","addressCountry":"NL"},"geo":{"@type":"GeoCoordinates","latitude":52.2993,"longitude":4.9498},"areaServed":["Arnhem","Nijmegen","Gelderland","Presikhaaf","Malburgen","Klarendal","Kronenburg","Schuytgraaf","Elderveld","Rijkerswoerd","Elst","Velp","Oosterbeek","Zevenaar","Renkum"],"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"08:00","closes":"18:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"09:00","closes":"16:00"}]}
+{"@context":"https://schema.org","@type":"GeneralContractor","name":"HG Dienstverlening","description":"Aannemersbedrijf voor renovatie, verbouwing en aanbouw in Arnhem en Gelderland.","telephone":"+31619009743","email":"hgdienstverleningbouw@outlook.com","url":"https://hg-dienstverlening.nl/","image":"https://hg-dienstverlening.nl/hg-logo.png","priceRange":"€€","address":{"@type":"PostalAddress","streetAddress":"Vleutenstraat 88","postalCode":"1106 CX","addressLocality":"Amsterdam","addressCountry":"NL"},"geo":{"@type":"GeoCoordinates","latitude":52.2993,"longitude":4.9498},"areaServed":["Arnhem","Nijmegen","Gelderland","Presikhaaf","Malburgen","Klarendal","Kronenburg","Schuytgraaf","Elderveld","Rijkerswoerd","Elst","Velp","Oosterbeek","Zevenaar","Renkum"],"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"08:00","closes":"18:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"09:00","closes":"16:00"}]}
 </script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Hoe lang duurt een gemiddeld project?","acceptedAnswer":{"@type":"Answer","text":"Een simpele verbouwing is vaak binnen een week klaar. Een complete renovatie of aanbouw duurt meestal 6 tot 12 weken."}},{"@type":"Question","name":"Bieden jullie garantie op jullie werk?","acceptedAnswer":{"@type":"Answer","text":"Ja, op al ons werk geven we minimaal 2 jaar garantie. Voor constructiewerk zoals een aanbouw geven we zelfs langer garantie."}},{"@type":"Question","name":"Kunnen jullie helpen met vergunningen?","acceptedAnswer":{"@type":"Answer","text":"Ja. Bij een aanbouw of uitbouw is vaak een vergunning nodig. We adviseren welke vergunningen nodig zijn en kunnen de aanvraag voor u regelen."}},{"@type":"Question","name":"In welke wijken van Arnhem komen jullie?","acceptedAnswer":{"@type":"Answer","text":"We werken door heel Arnhem en omgeving — onder andere in Presikhaaf, Malburgen, Klarendal, Kronenburg, Schuytgraaf, Elderveld en Rijkerswoerd, plus Elst, Velp, Oosterbeek, Zevenaar en Renkum."}},{"@type":"Question","name":"Heb ik een vergunning nodig voor een aanbouw?","acceptedAnswer":{"@type":"Answer","text":"Vaak wel, afhankelijk van de grootte en locatie. Bij een aanbouw of uitbouw adviseren we welke omgevingsvergunning nodig is en kunnen de aanvraag voor u regelen."}},{"@type":"Question","name":"Krijg ik een vaste prijs of een schatting?","acceptedAnswer":{"@type":"Answer","text":"U ontvangt een duidelijke offerte met een vaste prijs. Zo weet u vooraf precies waar u aan toe bent."}}]}
@@ -30,7 +30,7 @@
   --ink:#0f172a; --ink2:#1e293b;
   --accent:#f59e0b; --accent-dark:#d97706;
   --bg:#ffffff; --bg-soft:#f6f7f9;
-  --muted:#64748b; --line:#e2e8f0;
+  --muted:#55637a; --line:#e2e8f0;
   --head:'Archivo',sans-serif; --body:'Inter',sans-serif;
 }
 *{margin:0;padding:0;box-sizing:border-box}
@@ -192,28 +192,46 @@ footer a:hover{color:var(--accent)}
 .mobile-callbar .wa{background:#25D366;color:#fff}
 .mobile-callbar .offerte{background:var(--accent);color:#0f172a}
 @media(max-width:640px){.mobile-callbar{display:block}body{padding-bottom:72px}}
+@supports (padding: env(safe-area-inset-bottom)){.mobile-callbar{padding-bottom:calc(10px + env(safe-area-inset-bottom))}}
+@media(max-width:400px){.mobile-callbar .inner{flex-wrap:wrap}.mobile-callbar .offerte{flex-basis:100%}body{padding-bottom:116px}}
+/* Anchor offset (vaste nav) */
+section[id]{scroll-margin-top:90px}
+/* Focus & a11y */
+a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--accent);outline-offset:2px;border-radius:6px}
+input:invalid,select:invalid,textarea:invalid{box-shadow:0 0 0 1px #ef4444}
+/* Visueel verborgen labels voor formulier */
+.visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+/* Fade-in alleen met JS (no-js fallback) */
+html.js .service,html.js .step,html.js .project,html.js .k-card,html.js .t-card,html.js .about-grid,html.js .faq-item,html.js form,html.js .contact-info{opacity:0;transform:translateY(20px);transition:opacity .7s,transform .7s}
+/* CTA-banner na secties */
+.cta-band{background:var(--accent);color:#0f172a;text-align:center;padding:28px 20px}
+.cta-band p{font-family:var(--head);font-weight:800;font-size:1.2rem;margin-bottom:14px}
+.cta-band a{display:inline-block;background:#0f172a;color:#fff;padding:14px 28px;border-radius:10px;font-weight:700;text-decoration:none}
+@media(max-width:640px){section[id]{scroll-margin-top:76px}}
 </style>
 </head>
 <body>
 
 <nav>
   <div class="container">
-    <a href="#home" class="brand"><img src="hg-logo.png" alt="HG logo"><span>HG <b>DIENSTVERLENING</b></span></a>
-    <div class="nav-links">
+    <a href="#home" class="brand"><img src="hg-logo.png" alt="HG Dienstverlening — aannemer Arnhem"><span>HG <b>DIENSTVERLENING</b></span></a>
+    <div class="nav-links" id="navLinks">
       <a href="#diensten">Diensten</a>
       <a href="#werkwijze">Werkwijze</a>
       <a href="#projecten">Projecten</a>
+      <a href="#kosten">Kosten</a>
+      <a href="#faq">FAQ</a>
       <a href="#contact" class="nav-cta">Gratis offerte</a>
     </div>
-    <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button>
   </div>
 </nav>
 
 <section class="hero" id="home">
   <div class="container">
     <div class="eyebrow">Aannemer · Arnhem & Gelderland</div>
-    <h1>Uw verbouwing, renovatie of <em>aanbouw</em> — geregeld van plan tot oplevering</h1>
-    <p>Eigen vakteam, vaste prijs en 2 jaar garantie. Gratis advies en een duidelijke offerte — binnen 1 werkdag.</p>
+    <h1>Verbóuwen zonder gedoe: van plan tot <em>sleutelklare oplevering</em></h1>
+    <p>Eén vast aanspreekpunt, eigen vakteam en een vaste prijs. Zo weet u vooraf precies waar u aan toe bent — gratis advies binnen 1 werkdag.</p>
     <div class="hero-actions">
       <a href="#contact" class="btn btn-accent">Gratis offerte aanvragen</a>
       <a href="#werkwijze" class="btn btn-ghost">Bekijk onze werkwijze</a>
@@ -232,7 +250,7 @@ footer a:hover{color:var(--accent)}
 
 <div class="stats">
   <div class="container">
-    <div class="stat"><div class="num">10+</div><div class="lbl">Jaar ervaring in het vak</div></div>
+    <div class="stat"><div class="num">10+</div><div class="lbl">Jaar vakervaring</div></div>
     <div class="stat"><div class="num">Gratis</div><div class="lbl">Offerte & advies</div></div>
     <div class="stat"><div class="num">2 jaar</div><div class="lbl">Garantie</div></div>
     <div class="stat"><div class="num">Vaste</div><div class="lbl">Prijs, geen verrassingen</div></div>
@@ -247,10 +265,10 @@ footer a:hover{color:var(--accent)}
       <p class="sub">Van een strakke aanbouw tot een complete renovatie — wij regelen het hele traject.</p>
     </div>
     <div class="services-grid">
-      <div class="service"><div class="ic">📐</div><h3>Aanbouw & Uitbouw</h3><p>Meer woonruimte door een aanbouw of uitbouw, naadloos aangesloten op uw woning.</p><ul><li>Constructie & fundering</li><li>Vergunningaanvraag</li><li>Afwerking & dakwerk</li></ul></div>
-      <div class="service"><div class="ic">🔧</div><h3>Renovatie</h3><p>Verouderde ruimtes moderniseren met behoud van karakter en oog voor detail.</p><ul><li>Keuken & badkamer</li><li>Vloeren & wanden</li><li>Installaties</li></ul></div>
-      <div class="service"><div class="ic">🏗️</div><h3>Complete verbouwing</h3><p>Totale transformatie van woning of bedrijfspand, van sloop tot oplevering.</p><ul><li>Projectbeheer</li><li>Sloop & opbouw</li><li>Strakke planning</li></ul></div>
-      <div class="service"><div class="ic">🛠️</div><h3>Onderhoud & nazorg</h3><p>Van klein onderhoud tot spoedreparatie — snelle opvolging en garantie.</p><ul><li>Spoedservice</li><li>Preventief onderhoud</li><li>2 jaar garantie</li></ul></div>
+      <div class="service"><div class="ic">📐</div><h3>Aanbouw & Uitbouw</h3><p>Meer ruimte nodig voor uw gezin? Een strakke aanbouw of uitbouw, naadloos aangesloten op uw woning.</p><ul><li>Constructie & fundering</li><li>Vergunningaanvraag</li><li>Afwerking & dakwerk</li></ul></div>
+      <div class="service"><div class="ic">🔧</div><h3>Renovatie</h3><p>Badkamer of keuken verouderd? Wij moderniseren met behoud van karakter en een vaste prijs.</p><ul><li>Keuken & badkamer</li><li>Vloeren & wanden</li><li>Installaties</li></ul></div>
+      <div class="service"><div class="ic">🏗️</div><h3>Complete verbouwing</h3><p>Van verouderd pand naar uw droomwoning — totale transformatie, van sloop tot oplevering.</p><ul><li>Projectbeheer</li><li>Sloop & opbouw</li><li>Strakke planning</li></ul></div>
+      <div class="service"><div class="ic">🛠️</div><h3>Onderhoud & nazorg</h3><p>Een lekkage of losse tegel? Snelle opvolging, preventief onderhoud en garantie.</p><ul><li>Spoedservice</li><li>Preventief onderhoud</li><li>2 jaar garantie</li></ul></div>
     </div>
   </div>
 </section>
@@ -277,10 +295,11 @@ footer a:hover{color:var(--accent)}
   <div class="container">
     <div class="section-head">
       <div class="label">Ons werk</div>
-      <h2>Recente projecten</h2>
+      <h2>Een greep uit ons werk</h2>
+      <p class="sub">Echte projecten uit de regio — meer foto's en projectdetails volgen binnenkort.</p>
     </div>
     <div class="projects-grid">
-      <div class="project"><img src="amsterdam-1.jpeg" alt="Woningrenovatie Amsterdam" loading="lazy"><div class="body"><h3>Woningrenovatie Amsterdam</h3><p>Complete renovatie van een oud pand: nieuwe indeling, moderne afwerking en behoud van authentieke details.</p><div class="tags"><span class="tag">Renovatie</span><span class="tag">Interieur</span></div></div></div>
+      <div class="project"><img src="amsterdam-1.jpeg" alt="Woningrenovatie" loading="lazy"><div class="body"><h3>Woningrenovatie</h3><p>Complete renovatie van een woning: nieuwe indeling, moderne afwerking en behoud van authentieke details.</p><div class="tags"><span class="tag">Renovatie</span><span class="tag">Interieur</span></div></div></div>
       <div class="project"><img src="Arnhem-1.jpeg" alt="Aanbouw Arnhem" loading="lazy"><div class="body"><h3>Aanbouw Arnhem</h3><p>Uitbreiding met een strakke aanbouw, nieuwe constructie en naadloze aansluiting op de bestaande woning.</p><div class="tags"><span class="tag">Aanbouw</span><span class="tag">Constructie</span></div></div></div>
       <div class="project"><img src="Arnhem-3.jpeg" alt="Garagebouw Renkum" loading="lazy"><div class="body"><h3>Garagebouw Renkum</h3><p>Realisatie van een stevige garage op maat, perfect voor opslag of als werkruimte.</p><div class="tags"><span class="tag">Nieuwbouw</span><span class="tag">Garage</span></div></div></div>
       <div class="project"><img src="Arnhem-4.jpeg" alt="Kantoorverbouwing Zevenaar" loading="lazy"><div class="body"><h3>Kantoorverbouwing Zevenaar</h3><p>Moderne transformatie van een kantoorruimte: nieuwe indeling en frisse look.</p><div class="tags"><span class="tag">Kantoor</span><span class="tag">Interieur</span></div></div></div>
@@ -298,7 +317,7 @@ footer a:hover{color:var(--accent)}
     <div class="kosten-cards">
       <div class="k-card"><h3>Aanbouw</h3><div class="prijs">vanaf €2.500 /m²</div><p>Afhankelijk van afwerking, materiaal en vergunningen.</p></div>
       <div class="k-card"><h3>Renovatie</h3><div class="prijs">vanaf €1.000 /m²</div><p>Keuken, badkamer of complete woning — wij rekenen het door.</p></div>
-      <div class="k-card"><h3>Verbouwing</h3><div class="prijs">Maatwerk</div><p>Van kleine aanpassing tot complete transformatie. Vraag een gratis offerte.</p></div>
+      <div class="k-card"><h3>Verbouwing</h3><div class="prijs">vanaf €1.000 /m²</div><p>Van kleine aanpassing tot complete transformatie. Exacte prijs na een gratis intake.</p></div>
     </div>
     <p class="k-note">Alle prijzen zijn indicatief en exclusief btw. Vraag een vrijblijvende offerte aan — altijd gratis.</p>
   </div>
@@ -311,8 +330,8 @@ footer a:hover{color:var(--accent)}
       <div>
         <div class="label">Over ons</div>
         <h2>Vakmanschap met passie</h2>
-        <p>HG DIENSTVERLENING — een team van ervaren vakmensen met passie voor renovatie en aanbouw. Al meer dan 10 jaar vakervaring in verbouwing en renovatie, van kleine klussen tot complete projecten.</p>
-        <p>We luisteren echt naar wat u nodig heeft, denken mee over praktische oplossingen en zorgen dat alles netjes en op tijd klaar is. Werkzaam in Arnhem en door heel Nederland.</p>
+        <p>HG DIENSTVERLENING — een team van ervaren vakmensen met passie voor renovatie en aanbouw. Onze vakmensen hebben samen meer dan 10 jaar ervaring in verbouwing en renovatie, van kleine klussen tot complete projecten.</p>
+        <p>Onze werkbasis is Arnhem; van daaruit bedienen we huiseigenaren in de hele regio Gelderland — van Presikhaaf tot Oosterbeek, van Velp tot Renkum. We luisteren echt naar wat u nodig heeft en zorgen dat alles netjes en op tijd klaar is.</p>
       </div>
     </div>
   </div>
@@ -321,13 +340,17 @@ footer a:hover{color:var(--accent)}
 <section class="section testimonials">
   <div class="container">
     <div class="section-head">
-      <div class="label">Waarom HG Dienstverlening</div>
-      <h2>Waarom klanten voor ons kiezen</h2>
+      <div class="label">Onze beloftes</div>
+      <h2>Daarom kiest u voor HG Dienstverlening</h2>
     </div>
     <div class="t-grid">
       <div class="t-card"><div style="font-size:1.9rem;margin-bottom:14px">🛡️</div><p>Op al ons werk geven we minimaal 2 jaar garantie. Is er iets, dan lossen we het op — zonder discussie.</p><div class="who"><div><strong>2 jaar garantie</strong></div></div></div>
       <div class="t-card"><div style="font-size:1.9rem;margin-bottom:14px">🔨</div><p>Wij werken met een eigen vakteam. Geen wisselende onderaannemers, maar één vast aanspreekpunt voor uw project.</p><div class="who"><div><strong>Eigen vakteam</strong></div></div></div>
       <div class="t-card"><div style="font-size:1.9rem;margin-bottom:14px">💶</div><p>U ontvangt vooraf een duidelijke offerte met vaste prijs. Zo weet u precies waar u aan toe bent — geen verrassingen.</p><div class="who"><div><strong>Vaste prijs</strong></div></div></div>
+    </div>
+    <div class="cta-band" style="margin-top:36px;border-radius:14px">
+      <p>Klaar om te starten? Vraag vandaag nog een gratis, vrijblijvende offerte aan.</p>
+      <a href="#contact">Gratis offerte aanvragen</a>
     </div>
   </div>
 </section>
@@ -346,6 +369,10 @@ footer a:hover{color:var(--accent)}
       <details class="faq-item"><summary>Heb ik een vergunning nodig voor een aanbouw?</summary><p>Vaak wel, afhankelijk van de grootte en locatie. Bij een aanbouw of uitbouw adviseren we welke omgevingsvergunning nodig is en kunnen de aanvraag voor u regelen.</p></details>
       <details class="faq-item"><summary>Krijg ik een vaste prijs of een schatting?</summary><p>U ontvangt een duidelijke offerte met een vaste prijs. Zo weet u vooraf precies waar u aan toe bent — geen verrassingen achteraf.</p></details>
     </div>
+    <div class="cta-band" style="margin-top:32px;border-radius:14px">
+      <p>Nog vragen over uw project? Bel of app ons — we geven vandaag antwoord.</p>
+      <a href="#contact">Neem contact op</a>
+    </div>
   </div>
 </section>
 
@@ -363,11 +390,12 @@ footer a:hover{color:var(--accent)}
         <div class="item"><strong>Bereikbaar</strong><p>Ma-Vr: 08:00 – 18:00 · Za: 09:00 – 16:00</p></div>
       </div>
       <form action="https://formspree.io/f/xgoqnzqn" method="POST">
-        <div class="form-group"><input type="text" name="name" placeholder="Uw naam *" required></div>
-        <div class="form-group"><input type="email" name="email" placeholder="Uw email *" required></div>
-        <div class="form-group"><input type="tel" name="phone" placeholder="Uw telefoonnummer"></div>
+        <div class="form-group"><label class="visually-hidden" for="name">Uw naam</label><input type="text" id="name" name="name" placeholder="Uw naam *" required autocomplete="name"></div>
+        <div class="form-group"><label class="visually-hidden" for="email">Uw email</label><input type="email" id="email" name="email" placeholder="Uw email *" required autocomplete="email"></div>
+        <div class="form-group"><label class="visually-hidden" for="phone">Uw telefoonnummer</label><input type="tel" id="phone" name="phone" placeholder="Uw telefoonnummer" autocomplete="tel"></div>
         <div class="form-group">
-          <select name="projectType">
+          <label class="visually-hidden" for="projectType">Type project</label>
+          <select id="projectType" name="projectType">
             <option value="">Type project</option>
             <option value="aanbouw">Aanbouw / Uitbouw</option>
             <option value="renovatie">Renovatie</option>
@@ -376,13 +404,13 @@ footer a:hover{color:var(--accent)}
             <option value="anders">Anders</option>
           </select>
         </div>
-        <div class="form-group"><textarea name="message" rows="4" placeholder="Vertel kort over uw project (optioneel)"></textarea></div>
+        <div class="form-group"><label class="visually-hidden" for="message">Uw project</label><textarea id="message" name="message" rows="4" placeholder="Vertel kort over uw project (optioneel)"></textarea></div>
         <div class="form-group" style="display:flex;align-items:flex-start;gap:10px;font-size:.85rem;color:var(--muted)">
-          <input type="checkbox" name="privacy" required style="width:auto;margin-top:3px">
-          <span>Ik ga akkoord met de <a href="privacyverklaring.html" style="color:var(--accent-dark);text-decoration:underline">privacyverklaring</a>. *</span>
+          <input type="checkbox" id="privacy" name="privacy" required style="width:auto;margin-top:3px">
+          <span><label for="privacy" style="cursor:pointer">Ik ga akkoord met de <a href="privacyverklaring.html" style="color:var(--accent-dark);text-decoration:underline">privacyverklaring</a>. *</label></span>
         </div>
-        <button type="submit" class="submit-btn">Verstuur aanvraag</button>
-        <p style="text-align:center;font-size:.82rem;color:var(--muted);margin-top:12px">We reageren binnen 1 werkdag — gratis en vrijblijvend.</p>
+        <button type="submit" class="submit-btn">Stuur mijn gratis offerte aan</button>
+        <p style="text-align:center;font-size:.82rem;color:var(--muted);margin-top:12px">Binnen 1 werkdag een heldere vaste prijs — gratis en vrijblijvend.</p>
       </form>
     </div>
   </div>
@@ -392,7 +420,7 @@ footer a:hover{color:var(--accent)}
   <div class="container">
     <div>
       <div class="brand" style="margin-bottom:12px"><img src="hg-logo.png" alt="HG logo"><span>HG <b>DIENSTVERLENING</b></span></div>
-      <p style="font-size:.9rem;color:rgba(255,255,255,.55)">Aannemersbedrijf voor renovatie, verbouwing & aanbouw in Arnhem en heel Nederland.</p>
+      <p style="font-size:.9rem;color:rgba(255,255,255,.55)">Aannemersbedrijf voor renovatie, verbouwing & aanbouw. Werkbasis Arnhem, actief in heel Gelderland.</p>
     </div>
     <div>
       <h4>Navigatie</h4>
@@ -427,13 +455,23 @@ footer a:hover{color:var(--accent)}
 </div>
 
 <script>
-document.getElementById('hamburger').addEventListener('click',()=>{
-  const l=document.querySelector('.nav-links');
-  l.style.display = l.style.display==='flex' ? 'none' : 'flex';
-  if(l.style.display==='flex'){l.style.cssText='display:flex;flex-direction:column;position:absolute;top:72px;left:0;right:0;background:#0f172a;padding:20px 24px;gap:16px;border-bottom:1px solid rgba(255,255,255,.1)'}
-});
+document.documentElement.classList.add('js');
+const hamburger=document.getElementById('hamburger');
+const navLinks=document.querySelector('.nav-links');
+function toggleMenu(force){
+  const open = force!==undefined ? force : navLinks.getAttribute('aria-hidden')==='true';
+  navLinks.setAttribute('aria-hidden', String(!open));
+  hamburger.setAttribute('aria-expanded', String(open));
+  if(open){
+    navLinks.style.cssText='display:flex;flex-direction:column;position:absolute;top:72px;left:0;right:0;background:#0f172a;padding:20px 24px;gap:16px;border-bottom:1px solid rgba(255,255,255,.1)';
+  } else {
+    navLinks.style.display='none';
+  }
+}
+hamburger.addEventListener('click',()=>toggleMenu());
+document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>toggleMenu(false)));
 const io=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.style.opacity=1;x.target.style.transform='none';io.unobserve(x.target)}})},{threshold:.1});
-document.querySelectorAll('.service,.step,.project,.k-card,.t-card,.about-grid,.faq-item,form,.contact-info').forEach(el=>{el.style.opacity=0;el.style.transform='translateY(20px)';el.style.transition='opacity .7s, transform .7s';io.observe(el)});
+document.querySelectorAll('.service,.step,.project,.k-card,.t-card,.about-grid,.faq-item,form,.contact-info').forEach(el=>{io.observe(el)});
 </script>
 </body>
 </html>
