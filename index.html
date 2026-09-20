@@ -25,10 +25,12 @@
 </script>
 <link rel="icon" type="image/png" href="hg-logo.png">
 <link href="fonts.css" rel="stylesheet">
+<link rel="preload" as="image" href="hero-bg.webp" fetchpriority="high">
+<link rel="ai-catalog" href="/ai-catalog.json">
 <style>
 :root{
   --ink:#0f172a; --ink2:#1e293b;
-  --accent:#f59e0b; --accent-dark:#d97706;
+  --accent:#f59e0b; --accent-dark:#b45309;
   --bg:#ffffff; --bg-soft:#f6f7f9;
   --muted:#55637a; --line:#e2e8f0;
   --head:'Archivo',sans-serif; --body:'Inter',sans-serif;
@@ -53,7 +55,7 @@ nav .container{display:flex;align-items:center;justify-content:space-between;hei
 .hamburger span{width:24px;height:2px;background:#fff;border-radius:2px}
 
 .hero{position:relative;min-height:92vh;display:flex;align-items:center;background:linear-gradient(120deg,#0f172a 0%,#1e293b 55%,#334155 100%);overflow:hidden}
-.hero::before{content:'';position:absolute;inset:0;background:url('Arnhem-1.jpeg') center/cover no-repeat;opacity:.18}
+.hero::before{content:'';position:absolute;inset:0;background:url('hero-bg.webp') center/cover no-repeat;opacity:.18}
 .hero::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 20% 30%,transparent,rgba(15,23,42,.78))}
 .hero .container{position:relative;z-index:2;padding-top:100px;padding-bottom:70px}
 .eyebrow{display:inline-flex;align-items:center;gap:10px;color:var(--accent);font-weight:700;font-size:.8rem;letter-spacing:2.5px;text-transform:uppercase;margin-bottom:20px}
@@ -132,6 +134,7 @@ h2{font-family:var(--head);font-weight:800;font-size:clamp(1.85rem,3.4vw,2.7rem)
 .testimonials{background:var(--ink);color:#fff}
 .testimonials h2{color:#fff}
 .testimonials .sub{color:rgba(255,255,255,.6)}
+.testimonials .label{color:var(--accent)}
 .t-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
 .t-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:28px}
 .t-card .stars{color:var(--accent);letter-spacing:3px;margin-bottom:14px}
@@ -176,7 +179,7 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--accent);border-c
 
 footer{background:#0b1220;color:rgba(255,255,255,.6);padding:60px 0 30px}
 footer .container{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px}
-footer h4{color:#fff;font-family:var(--head);margin-bottom:14px;font-size:1rem}
+footer h3{color:#fff;font-family:var(--head);margin-bottom:14px;font-size:1rem}
 footer a{display:block;color:rgba(255,255,255,.6);margin-bottom:8px;font-size:.9rem;transition:color .2s}
 footer a:hover{color:var(--accent)}
 .foot-bottom{border-top:1px solid rgba(255,255,255,.1);margin-top:40px;padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:.82rem}
@@ -209,7 +212,7 @@ footer a:hover{color:var(--accent)}
 .mobile-callbar .inner{display:flex;gap:10px;max-width:1180px;margin:0 auto}
 .mobile-callbar a{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;padding:12px;border-radius:10px;font-weight:700;font-size:.9rem;text-decoration:none;white-space:nowrap}
 .mobile-callbar .call{background:#1e293b;color:#fff;border:1px solid rgba(255,255,255,.15)}
-.mobile-callbar .wa{background:#25D366;color:#fff}
+.mobile-callbar .wa{background:#25D366;color:#0f172a}
 .mobile-callbar .offerte{background:var(--accent);color:#0f172a}
 @media(max-width:640px){.mobile-callbar{display:block}body{padding-bottom:72px}}
 @supports (padding: env(safe-area-inset-bottom)){.mobile-callbar{padding-bottom:calc(10px + env(safe-area-inset-bottom))}}
@@ -242,8 +245,8 @@ html.js .service,html.js .step,html.js .project,html.js .k-card,html.js .t-card,
 .ss-prev{left:14px}.ss-next{right:14px}
 .ss-prev:hover,.ss-next:hover{background:var(--accent)}
 .ss-dots{position:absolute;bottom:14px;right:18px;display:flex;gap:7px;z-index:4}
-.ss-dots button{width:9px;height:9px;border-radius:50%;border:none;background:rgba(255,255,255,.55);cursor:pointer;padding:0}
-.ss-dots button.active{background:var(--accent);transform:scale(1.25)}
+.ss-dots button{width:24px;height:24px;border-radius:50%;border:none;background:transparent;cursor:pointer;padding:0;display:flex;align-items:center;justify-content:center}.ss-dots button::after{content:"";width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.55);transition:transform .2s,background .2s}
+.ss-dots button.active::after{background:var(--accent);transform:scale(1.25)}
 @media(max-width:640px){.ss-prev,.ss-next{width:36px;height:36px;font-size:1rem}}
 </style>
 </head>
@@ -264,6 +267,7 @@ html.js .service,html.js .step,html.js .project,html.js .k-card,html.js .t-card,
   </div>
 </nav>
 
+<main>
 <section class="hero" id="home">
   <div class="container">
     <div class="eyebrow">Aannemer · Arnhem & Gelderland</div>
@@ -337,23 +341,23 @@ html.js .service,html.js .step,html.js .project,html.js .k-card,html.js .t-card,
     </div>
     <div class="slideshow" id="projectSlideshow" role="region" aria-label="Projectfoto's">
       <div class="slides">
-        <div class="slide active"><img loading="lazy" decoding="async" src="amsterdam-1.jpeg" alt="Woningrenovatie"><div class="slide-cap"><h3>Woningrenovatie</h3><p>Complete renovatie van een woning: nieuwe indeling, moderne afwerking.</p></div></div>
-        <div class="slide"><img loading="lazy" decoding="async" src="Arnhem-1.jpeg" alt="Aanbouw Arnhem"><div class="slide-cap"><h3>Aanbouw Arnhem</h3><p>Uitbreiding met een strakke aanbouw, naadloos aangesloten op de woning.</p></div></div>
-        <div class="slide"><img loading="lazy" decoding="async" src="Arnhem-3.jpeg" alt="Garagebouw Renkum"><div class="slide-cap"><h3>Garagebouw Renkum</h3><p>Realisatie van een stevige garage op maat.</p></div></div>
-        <div class="slide"><img loading="lazy" decoding="async" src="Arnhem-4.jpeg" alt="Kantoorverbouwing Zevenaar"><div class="slide-cap"><h3>Kantoorverbouwing Zevenaar</h3><p>Moderne transformatie van een kantoorruimte.</p></div></div>
-        <div class="slide"><img loading="lazy" decoding="async" src="doetinchem/doetinchem-1.jpg" alt="Woningrenovatie Doetinchem"><div class="slide-cap"><h3>Woningrenovatie Doetinchem</h3><p>Complete renovatie van een woning in Doetinchem.</p></div></div>
-        <div class="slide"><img loading="lazy" decoding="async" src="doetinchem/doetinchem-2.jpg" alt="Verbouwing Doetinchem"><div class="slide-cap"><h3>Verbouwing Doetinchem</h3><p>Verbouwing van een woning in de regio Doetinchem.</p></div></div>
-        <div class="slide"><img loading="lazy" decoding="async" src="doetinchem/doetinchem-3.jpg" alt="Interieur verbouwing"><div class="slide-cap"><h3>Interieur verbouwing</h3><p>Interieurverbouwing: moderne afwerking van leefruimtes.</p></div></div>
-        <div class="slide"><img loading="lazy" decoding="async" src="doetinchem/doetinchem-4.jpg" alt="Aanbouw Doetinchem"><div class="slide-cap"><h3>Aanbouw Doetinchem</h3><p>Aanbouw en uitbouw van een woning in Doetinchem.</p></div></div>
-        <div class="slide"><img loading="lazy" decoding="async" src="dak/dak-1.jpg" alt="Dakrenovatie"><div class="slide-cap"><h3>Dakrenovatie</h3><p>Vakkundige dakrenovatie.</p></div></div>
-        <div class="slide"><img loading="lazy" decoding="async" src="dak/dak-2.jpg" alt="Dakisolatie"><div class="slide-cap"><h3>Dakisolatie</h3><p>Dakisolatie voor een energiezuinig huis.</p></div></div>
-        <div class="slide"><img loading="lazy" decoding="async" src="dak/dak-3.jpg" alt="Dakproject"><div class="slide-cap"><h3>Dakproject</h3><p>Dakwerk project.</p></div></div>
-        <div class="slide"><img loading="lazy" decoding="async" src="dak/dak-4.jpg" alt="Nieuw dak"><div class="slide-cap"><h3>Nieuw dak</h3><p>Nieuwe dakbedekking, netjes afgewerkt.</p></div></div>
-        <div class="slide"><img loading="lazy" decoding="async" src="dak/dak-5.jpg" alt="Dakwerk & goten"><div class="slide-cap"><h3>Dakwerk & goten</h3><p>Dakonderhoud en dakgoten.</p></div></div>
+        <div class="slide active"><img loading="lazy" decoding="async" src="amsterdam-1.webp" width="1200" height="1600" alt="Woningrenovatie"><div class="slide-cap"><h3>Woningrenovatie</h3><p>Complete renovatie van een woning: nieuwe indeling, moderne afwerking.</p></div></div>
+        <div class="slide"><img loading="lazy" decoding="async" src="Arnhem-1.webp" width="1600" height="1200" alt="Aanbouw Arnhem"><div class="slide-cap"><h3>Aanbouw Arnhem</h3><p>Uitbreiding met een strakke aanbouw, naadloos aangesloten op de woning.</p></div></div>
+        <div class="slide"><img loading="lazy" decoding="async" src="Arnhem-3.webp" width="1600" height="1200" alt="Garagebouw Renkum"><div class="slide-cap"><h3>Garagebouw Renkum</h3><p>Realisatie van een stevige garage op maat.</p></div></div>
+        <div class="slide"><img loading="lazy" decoding="async" src="Arnhem-4.webp" width="1600" height="1200" alt="Kantoorverbouwing Zevenaar"><div class="slide-cap"><h3>Kantoorverbouwing Zevenaar</h3><p>Moderne transformatie van een kantoorruimte.</p></div></div>
+        <div class="slide"><img loading="lazy" decoding="async" src="doetinchem/doetinchem-1.webp" width="1078" height="810" alt="Woningrenovatie Doetinchem"><div class="slide-cap"><h3>Woningrenovatie Doetinchem</h3><p>Complete renovatie van een woning in Doetinchem.</p></div></div>
+        <div class="slide"><img loading="lazy" decoding="async" src="doetinchem/doetinchem-2.webp" width="1079" height="608" alt="Verbouwing Doetinchem"><div class="slide-cap"><h3>Verbouwing Doetinchem</h3><p>Verbouwing van een woning in de regio Doetinchem.</p></div></div>
+        <div class="slide"><img loading="lazy" decoding="async" src="doetinchem/doetinchem-3.webp" width="1079" height="811" alt="Interieur verbouwing"><div class="slide-cap"><h3>Interieur verbouwing</h3><p>Interieurverbouwing: moderne afwerking van leefruimtes.</p></div></div>
+        <div class="slide"><img loading="lazy" decoding="async" src="doetinchem/doetinchem-4.webp" width="1079" height="810" alt="Aanbouw Doetinchem"><div class="slide-cap"><h3>Aanbouw Doetinchem</h3><p>Aanbouw en uitbouw van een woning in Doetinchem.</p></div></div>
+        <div class="slide"><img loading="lazy" decoding="async" src="dak/dak-1.webp" width="1079" height="810" alt="Dakrenovatie"><div class="slide-cap"><h3>Dakrenovatie</h3><p>Vakkundige dakrenovatie.</p></div></div>
+        <div class="slide"><img loading="lazy" decoding="async" src="dak/dak-2.webp" width="898" height="1200" alt="Dakisolatie"><div class="slide-cap"><h3>Dakisolatie</h3><p>Dakisolatie voor een energiezuinig huis.</p></div></div>
+        <div class="slide"><img loading="lazy" decoding="async" src="dak/dak-3.webp" width="610" height="1200" alt="Dakproject"><div class="slide-cap"><h3>Dakproject</h3><p>Dakwerk project.</p></div></div>
+        <div class="slide"><img loading="lazy" decoding="async" src="dak/dak-4.webp" width="1079" height="810" alt="Nieuw dak"><div class="slide-cap"><h3>Nieuw dak</h3><p>Nieuwe dakbedekking, netjes afgewerkt.</p></div></div>
+        <div class="slide"><img loading="lazy" decoding="async" src="dak/dak-5.webp" width="900" height="1200" alt="Dakwerk & goten"><div class="slide-cap"><h3>Dakwerk & goten</h3><p>Dakonderhoud en dakgoten.</p></div></div>
       </div>
       <button class="ss-prev" aria-label="Vorige foto">&#10094;</button>
       <button class="ss-next" aria-label="Volgende foto">&#10095;</button>
-      <div class="ss-dots" role="tablist"></div>
+      <div class="ss-dots" aria-label="Projectfoto navigatie"></div>
     </div>
   </div>
 </section>
@@ -361,7 +365,7 @@ html.js .service,html.js .step,html.js .project,html.js .k-card,html.js .t-card,
 <section class="section" id="about">
   <div class="container">
     <div class="about-grid">
-      <img src="Arnhem-3.jpeg" alt="HG Dienstverlening aan het werk" loading="lazy">
+      <img src="Arnhem-3.webp" width="1600" height="1200" alt="HG Dienstverlening aan het werk" loading="lazy">
       <div>
         <div class="label">Over ons</div>
         <h2>Vakmanschap met passie</h2>
@@ -478,6 +482,8 @@ html.js .service,html.js .step,html.js .project,html.js .k-card,html.js .t-card,
   </div>
 </section>
 
+</main>
+
 <footer>
   <div class="container">
     <div>
@@ -485,7 +491,7 @@ html.js .service,html.js .step,html.js .project,html.js .k-card,html.js .t-card,
       <p style="font-size:.9rem;color:rgba(255,255,255,.55)">Aannemersbedrijf voor renovatie, verbouwing & aanbouw. Werkbasis Arnhem, actief in heel Gelderland.</p>
     </div>
     <div>
-      <h4>Navigatie</h4>
+      <h3>Navigatie</h3>
       <a href="#diensten">Diensten</a>
       <a href="#werkwijze">Werkwijze</a>
       <a href="#projecten">Projecten</a>
@@ -494,7 +500,7 @@ html.js .service,html.js .step,html.js .project,html.js .k-card,html.js .t-card,
       <a href="algemene-voorwaarden.html">Algemene voorwaarden</a>
     </div>
     <div>
-      <h4>Contact</h4>
+      <h3>Contact</h3>
       <a href="tel:+31619009743">+31 6 19009743</a>
       <a href="mailto:hgdienstverleningbouw@outlook.com">hgdienstverleningbouw@outlook.com</a>
       <a href="https://wa.me/31619009743" target="_blank" rel="noopener">WhatsApp</a>

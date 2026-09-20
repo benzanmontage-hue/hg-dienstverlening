@@ -1,0 +1,26 @@
+{
+  "specVersion": "1.0",
+  "host": {
+    "displayName": "HG Dienstverlening",
+    "documentationUrl": "https://hg-dienstverlening.nl/",
+    "logoUrl": "https://hg-dienstverlening.nl/hg-logo.png"
+  },
+  "entries": [
+    {
+      "identifier": "urn:air:hg-dienstverlening:web:site",
+      "displayName": "HG Dienstverlening — Aannemer Arnhem & Gelderland",
+      "type": "application/agent-card+json",
+      "url": "https://hg-dienstverlening.nl/",
+      "description": "Aannemersbedrijf voor renovatie, verbouwing en aanbouw in Arnhem en Gelderland. Eigen vakteam, vaste prijs en 2 jaar garantie.",
+      "tags": ["aannemer", "renovatie", "verbouwing", "aanbouw", "Arnhem", "Gelderland"],
+      "capabilities": ["offerte-aanvragen", "contact", "projecten", "diensten"],
+      "representativeQueries": [
+        "aannemer Arnhem renovatie verbouwing",
+        "aanbouw specialist Gelderland",
+        "vaste prijs verbouwing Arnhem"
+      ],
+      "version": "1.0.0",
+      "updatedAt": "2026-09-20T00:00:00Z"
+    }
+  ]
+}
