@@ -73,6 +73,8 @@ svg.i{width:1.15em;height:1.15em;flex:none;fill:none;stroke:currentColor;stroke-
 .section{padding-block:var(--section)}
 .visually-hidden{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap}
 section[id]{scroll-margin-top:72px}
+.skip{position:absolute;left:12px;top:-60px;z-index:200;padding:12px 18px;background:var(--accent);color:var(--ink);font-weight:600;text-decoration:none;transition:top .2s}
+.skip:focus{top:12px}
 :focus-visible{outline:3px solid var(--accent);outline-offset:3px}
 h1,h2,h3{font-family:var(--head);line-height:1.02;letter-spacing:-.025em}
 h2{font-size:var(--fs-h2);font-weight:800;max-width:16ch}
@@ -301,6 +303,8 @@ html.js .panel[hidden]{display:none}
 
 /* ---------- mobiele belbalk ---------- */
 .callbar{display:none;position:fixed;left:0;right:0;bottom:0;z-index:90;background:var(--ink);padding:10px 12px calc(10px + env(safe-area-inset-bottom));box-shadow:0 -8px 24px rgba(11,18,32,.25)}
+.callbar{transition:transform .3s var(--ease)}
+.callbar.away{transform:translateY(110%)}
 .callbar .inner{display:grid;grid-template-columns:1fr 1fr 1.3fr;gap:8px}
 .callbar a{display:flex;align-items:center;justify-content:center;gap:8px;min-height:48px;font-weight:600;font-size:.9375rem;text-decoration:none;white-space:nowrap}
 .callbar .call{background:var(--ink-2);color:var(--on-dark)}
@@ -374,6 +378,17 @@ html.js .panel[hidden]{display:none}
 }
 @media (max-width:640px){
   .callbar{display:block}
+  .hero-copy{padding-top:36px;padding-bottom:32px}
+  .h1-loc{margin-bottom:14px}
+  .hero .lead{margin:18px 0 24px}
+  .facts{grid-template-columns:1fr 1fr;gap:10px 16px;margin-top:28px;font-size:.875rem}
+  .facts li{align-items:flex-start}
+  .hero-rating{margin-top:20px}
+  html.js .tabs{display:grid;grid-template-columns:1fr 1fr;overflow:visible;margin-inline:0;padding-inline:0}
+  .tab{width:100%;text-align:center;padding:14px 10px 16px}
+  .tab strong{font-size:1rem}
+  .plan li{padding:18px}
+  .foot-cols li a,.hero-rating,.foot-legal a{display:inline-flex;align-items:center;min-height:44px}
   body{padding-bottom:76px}
   .foot-cols{grid-template-columns:1fr}
   .figures b{font-size:2.25rem}
@@ -398,7 +413,7 @@ html.js .panel[hidden]{display:none}
   <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 2.5l2.9 6 6.6.8-4.9 4.6 1.3 6.5L12 17.2l-5.9 3.2 1.3-6.5L2.5 9.3l6.6-.8z"/></symbol>
 </svg>
 
-<a href="#main" class="visually-hidden">Naar de inhoud</a>
+<a href="#main" class="skip">Naar de inhoud</a>
 
 <header class="nav">
   <div class="wrap">
@@ -804,6 +819,12 @@ html.js .panel[hidden]{display:none}
     function set(){ c.style.setProperty('--pos', r.value + '%'); }
     r.addEventListener('input', set); set();
   });
+
+  // Mobiele belbalk verbergen zodra het formulier in beeld is
+  var cb = $('.callbar'), ct = $('#contact');
+  if (cb && ct && 'IntersectionObserver' in window) {
+    new IntersectionObserver(function(e){ cb.classList.toggle('away', e[0].isIntersecting); }, {threshold: 0.15}).observe(ct);
+  }
 
   // Gefaseerd in beeld
   var reveal = $$('[data-reveal]');
