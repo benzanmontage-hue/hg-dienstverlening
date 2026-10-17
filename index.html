@@ -54,7 +54,7 @@
   --fs-small:.875rem;
   --max:1240px;
   --gutter:clamp(16px,3vw,32px);
-  --section:clamp(88px,11vw,160px);
+  --section:clamp(64px,10vw,152px);
   --radius:0px;
   --ease:cubic-bezier(.2,.7,.2,1);
   --dur:700ms;
@@ -95,7 +95,8 @@ h2{font-size:var(--fs-h2);font-weight:800;max-width:16ch}
 .link:hover span{text-decoration:underline;text-underline-offset:4px}
 
 /* ---------- navigatie ---------- */
-.nav{position:sticky;top:0;z-index:100;background:var(--ink);color:var(--on-dark)}
+.nav{position:sticky;top:0;z-index:100;background:var(--ink);color:var(--on-dark);transition:transform .35s var(--ease)}
+.nav.hide{transform:translateY(-100%)}
 .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:72px;gap:24px}
 .brand{display:flex;align-items:center;gap:12px;font-family:var(--head);font-weight:800;font-size:1.05rem;letter-spacing:.02em;text-decoration:none;color:var(--on-dark)}
 .brand img{height:44px;width:66px;object-fit:cover}
@@ -325,12 +326,19 @@ html.js .panel[hidden]{display:none}
 
 /* ---------- beweging ---------- */
 @media (prefers-reduced-motion:no-preference){
-  html.js [data-reveal]>*{opacity:0;transform:translateY(24px);transition:opacity var(--dur) var(--ease),transform var(--dur) var(--ease);transition-delay:calc(var(--i,0) * 80ms)}
+  html.js [data-reveal]>*{opacity:0;transform:translateY(16px);transition:opacity 600ms var(--ease),transform 600ms var(--ease);transition-delay:calc(var(--i,0) * 70ms)}
+  img.fade{opacity:0;transition:opacity .6s var(--ease)}
+  img.fade.loaded{opacity:1}
   html.js [data-reveal].in>*{opacity:1;transform:none}
   html.js .plan .bar{transform:scaleX(0);transition:transform 900ms var(--ease);transition-delay:calc(200ms + var(--i,0) * 140ms)}
   html.js .plan.in .bar{transform:scaleX(1)}
   .hero-media img{animation:drift 18s var(--ease) both}
   @keyframes drift{from{transform:scale(1.08)}to{transform:scale(1)}}
+}
+@supports (interpolate-size:allow-keywords){
+  :root{interpolate-size:allow-keywords}
+  .faq-list details::details-content{block-size:0;overflow:hidden;transition:block-size .35s var(--ease),content-visibility .35s allow-discrete}
+  .faq-list details[open]::details-content{block-size:auto}
 }
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
@@ -359,6 +367,7 @@ html.js .panel[hidden]{display:none}
   .about-grid,.rev-grid,.faq-grid,.contact-grid{grid-template-columns:minmax(0,1fr)}
   .strip{grid-template-columns:repeat(5,72%);overflow-x:auto;scroll-snap-type:x mandatory;margin-inline:calc(var(--gutter) * -1);padding-inline:var(--gutter);scrollbar-width:none}
   .strip .shot{scroll-snap-align:start}
+  .strip,html.js .tabs{overscroll-behavior-x:contain}
   .foot-cols{grid-template-columns:1fr 1fr}
   .foot-cols>div:first-child{grid-column:1/-1}
 }
@@ -829,13 +838,35 @@ html.js .panel[hidden]{display:none}
     new IntersectionObserver(function(e){ cb.classList.toggle('away', e[0].isIntersecting); }, {threshold: 0.15}).observe(ct);
   }
 
+  // Menubalk wegschuiven bij omlaag scrollen, terug bij omhoog
+  var nav = $('.nav'), lastY = window.scrollY, ticking = false;
+  window.addEventListener('scroll', function(){
+    if (ticking) return; ticking = true;
+    requestAnimationFrame(function(){
+      var y = window.scrollY, d = y - lastY;
+      if (links.classList.contains('open') || y < 120) nav.classList.remove('hide');
+      else if (d > 6) nav.classList.add('hide');
+      else if (d < -6) nav.classList.remove('hide');
+      lastY = y; ticking = false;
+    });
+  }, {passive: true});
+  $$('a[href^="#"]').forEach(function(a){ a.addEventListener('click', function(){ setTimeout(function(){ nav.classList.add('hide'); }, 50); }); });
+
+  // Foto's zacht laten verschijnen zodra ze geladen zijn
+  $$('img[loading="lazy"]').forEach(function(img){
+    if (img.complete) return;
+    img.classList.add('fade');
+    img.addEventListener('load', function(){ img.classList.add('loaded'); }, {once: true});
+    img.addEventListener('error', function(){ img.classList.add('loaded'); }, {once: true});
+  });
+
   // Gefaseerd in beeld
   var reveal = $$('[data-reveal]');
   reveal.forEach(function(el){ Array.prototype.forEach.call(el.children, function(c, i){ c.style.setProperty('--i', i); }); });
   if ('IntersectionObserver' in window) {
     var io = new IntersectionObserver(function(entries){
       entries.forEach(function(e){ if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-    }, {threshold: 0.12, rootMargin: '0px 0px -40px 0px'});
+    }, {threshold: 0, rootMargin: '0px 0px -8% 0px'});
     reveal.forEach(function(el){ io.observe(el); });
   } else {
     reveal.forEach(function(el){ el.classList.add('in'); });

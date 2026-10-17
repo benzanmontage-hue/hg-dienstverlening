@@ -55,7 +55,7 @@ De CSS in `index.html` (`:root`) moet exact deze waarden bevatten. De check verg
   "--fs-small": ".875rem",
   "--max": "1240px",
   "--gutter": "clamp(16px,3vw,32px)",
-  "--section": "clamp(88px,11vw,160px)",
+  "--section": "clamp(64px,10vw,152px)",
   "--radius": "0px",
   "--ease": "cubic-bezier(.2,.7,.2,1)",
   "--dur": "700ms"
@@ -136,7 +136,14 @@ Zichtbare labels, `autocomplete`, verplichte velden gemarkeerd. Foutstijl alleen
 Met JS: verzenden via `fetch` (Formspree, `Accept: application/json`), melding in een `aria-live`-gebied;
 zonder JS: gewone POST. Honeypot-veld `_gotcha`. Privacy-akkoord verplicht.
 
-### 6.6 Mobiele belbalk
+### 6.6 Scrollgedrag
+- Menubalk schuift weg bij omlaag scrollen en komt terug bij omhoog scrollen (altijd zichtbaar bovenaan en als het menu open is).
+- Inhoud verschijnt zacht (16px, 600ms, 70ms na elkaar), al vlak voordat het in beeld komt; zonder JS of met "minder beweging" staat alles direct vast.
+- Foto's faden in zodra ze geladen zijn; vaste breedte/hoogte, dus niets verspringt (CLS 0).
+- FAQ-antwoorden klappen vloeiend open (waar de browser dat ondersteunt).
+- Horizontale fotostroken en tabs triggeren geen "terug"-veeg van de browser.
+
+### 6.7 Mobiele belbalk
 Onder 640px vast onderaan: Bellen · WhatsApp · Offerte. Houdt rekening met `safe-area-inset-bottom`.
 
 ## 7. Beeld
