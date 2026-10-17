@@ -143,8 +143,8 @@ Onder 640px vast onderaan: Bellen · WhatsApp · Offerte. Houdt rekening met `sa
 
 | Bestand | Inhoud | Gebruik |
 |---|---|---|
-| `doetinchem/doetinchem-1.webp` | Tuinbijgebouw met overkapping | Alleen hero (preload) |
-| `doetinchem/doetinchem-4.webp`, `-2.webp` | Zelfde project: casco, gevel | Project "Tuinbijgebouw" |
+| `hero-tuinkamer.webp` | Tuinkamer Doetinchem, opgeleverd met glazen schuifwanden | Alleen hero (preload) |
+| `doetinchem/doetinchem-4.webp`, `-1.webp`, `-2.webp` | Zelfde project: casco, overkapping, gevel | Project "Tuinkamer, Doetinchem" |
 | `aanbouw-voor.webp`, `aanbouw-na.webp` | Aanbouw Arnhem: fundering → gestorte vloer, op elkaar uitgelijnd | Voor/na-schuif |
 | `dak/dak-1…5.webp` | Platte daken | Project "Platte daken" |
 | `Arnhem-4.webp`, `amsterdam-1.webp` | Interieur in renovatie, afgewerkte gang | Project "Interieur" |

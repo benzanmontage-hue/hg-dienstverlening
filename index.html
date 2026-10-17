@@ -28,7 +28,7 @@
 <link rel="apple-touch-icon" href="favicon.png">
 <link rel="preload" as="font" type="font/ttf" href="fonts/font4.ttf" crossorigin>
 <link href="fonts.css" rel="stylesheet">
-<link rel="preload" as="image" href="doetinchem/doetinchem-1.webp" fetchpriority="high">
+<link rel="preload" as="image" href="hero-tuinkamer.webp" fetchpriority="high">
 <link rel="ai-catalog" href="/ai-catalog.json">
 <script>document.documentElement.classList.add('js');setTimeout(function(){document.querySelectorAll('[data-reveal]').forEach(function(e){e.classList.add('in')})},3500);</script>
 <style>
@@ -200,6 +200,8 @@ html.js .panel[hidden]{display:none}
 .mosaic .shot:last-child{grid-column:2/4}
 .pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
 .pair .shot{aspect-ratio:4/3}
+.trio{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.trio .shot{aspect-ratio:4/3}
 .strip{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}
 .strip .shot{aspect-ratio:4/5}
 
@@ -367,7 +369,7 @@ html.js .panel[hidden]{display:none}
   .mosaic .shot{aspect-ratio:4/3}
   .mosaic .shot:first-child{grid-row:auto;grid-column:1/-1}
   .mosaic .shot:last-child{grid-column:1/-1}
-  .pair{grid-template-columns:1fr}
+  .pair,.trio{grid-template-columns:1fr}
   .compare{aspect-ratio:4/3}
   .figures{grid-template-columns:1fr 1fr}
   .figures li{padding:20px}
@@ -452,8 +454,8 @@ html.js .panel[hidden]{display:none}
     <a class="hero-rating" href="#reviews"><span class="stars" aria-hidden="true"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span><span><b>5,0</b> op Werkspot · 3 beoordelingen</span></a>
   </div>
   <figure class="hero-media">
-    <img src="doetinchem/doetinchem-1.webp" width="1078" height="810" alt="Tuinbijgebouw met overkapping en kalkzandsteen muren in een tuin in Doetinchem" fetchpriority="high">
-    <figcaption>Tuinbijgebouw met overkapping, Doetinchem</figcaption>
+    <img src="hero-tuinkamer.webp" width="1169" height="1345" alt="Tuinkamer met platte zwarte dakrand, glazen schuifwanden, houten plafond met spotjes en een vloer van grote tegels" fetchpriority="high">
+    <figcaption>Tuinkamer met glazen schuifwanden, Doetinchem</figcaption>
   </figure>
 </section>
 
@@ -566,9 +568,10 @@ html.js .panel[hidden]{display:none}
     </div>
 
     <div class="proj" id="proj-bijgebouw">
-      <div class="proj-title" data-reveal><h3>Tuinbijgebouw, Doetinchem</h3><p>Van casco met houten dakbalken naar zwarte gevelbekleding. Het eindresultaat met overkapping ziet u bovenaan deze pagina.</p></div>
-      <div class="pair">
+      <div class="proj-title" data-reveal><h3>Tuinkamer, Doetinchem</h3><p>Van casco met houten dakbalken tot overkapping en zwarte gevelbekleding. Het eindresultaat met glazen schuifwanden ziet u bovenaan deze pagina.</p></div>
+      <div class="trio">
         <a class="shot" href="doetinchem/doetinchem-4.webp"><figure><img src="doetinchem/doetinchem-4.webp" width="1079" height="810" loading="lazy" decoding="async" alt="Casco van het bijgebouw met kalkzandsteen muren en houten dakbalken"><figcaption>Casco en dakbalken</figcaption></figure></a>
+        <a class="shot" href="doetinchem/doetinchem-1.webp"><figure><img src="doetinchem/doetinchem-1.webp" width="1078" height="810" loading="lazy" decoding="async" alt="De overkapping staat, nog zonder glazen wanden"><figcaption>Overkapping staat</figcaption></figure></a>
         <a class="shot" href="doetinchem/doetinchem-2.webp"><figure><img src="doetinchem/doetinchem-2.webp" width="1079" height="608" loading="lazy" decoding="async" alt="Zwarte verticale gevelbekleding van het bijgebouw tussen hagen"><figcaption>Zwarte gevelbekleding</figcaption></figure></a>
       </div>
     </div>
