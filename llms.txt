@@ -11,7 +11,7 @@
 - [Aanbouw & Uitbouw](https://hg-dienstverlening.nl/#diensten)
 - [Renovatie](https://hg-dienstverlening.nl/#diensten)
 - [Complete verbouwing](https://hg-dienstverlening.nl/#diensten)
-- [Onderhoud & nazorg](https://hg-dienstverlening.nl/#diensten)
+- [Dak & onderhoud](https://hg-dienstverlening.nl/#diensten)
 
 ## Werkwijze
 
