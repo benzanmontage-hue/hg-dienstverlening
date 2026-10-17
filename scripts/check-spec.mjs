@@ -108,6 +108,10 @@ const srcs = imgs.map((t) => (t.match(/\ssrc="([^"]+)"/) || [, ''])[1]).filter((
 const dup = srcs.filter((x, i) => srcs.indexOf(x) !== i);
 check('AC-13 geen dubbele projectfoto', !dup.length, [...new Set(dup)].join(', '));
 
+// AC-14
+const ldText = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map((m) => m[1]).join('');
+check('AC-14 schema volgens Google-richtlijnen', !/aggregateRating/.test(ldText) && !/"geo"/.test(ldText) && /"areaServed":\[\{/.test(ldText));
+
 // Rapport
 let fail = 0;
 for (const r of results) {

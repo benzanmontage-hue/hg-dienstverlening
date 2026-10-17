@@ -130,6 +130,8 @@ Elke foto is een link naar het bestand zelf (werkt zonder JS). Met JS opent een 
 vorige/volgende, Escape sluit, focus keert terug. Geen automatisch draaiende slideshow.
 
 ### 6.5 Offerteformulier (`#contact`)
+Begint met één makkelijke vraag: "Wat wilt u laten doen?" als keuzeknoppen (`name="projectType"`), die de projectkiezer voorinvult.
+Daarna: naam*, e-mail*, telefoon, postcode of plaats, korte omschrijving, met een link om foto's via WhatsApp te sturen.
 Zichtbare labels, `autocomplete`, verplichte velden gemarkeerd. Foutstijl alleen na interactie (`:user-invalid`).
 Met JS: verzenden via `fetch` (Formspree, `Accept: application/json`), melding in een `aria-live`-gebied;
 zonder JS: gewone POST. Honeypot-veld `_gotcha`. Privacy-akkoord verplicht.
@@ -171,6 +173,7 @@ Automatisch (`node scripts/check-spec.mjs`):
 - **AC-11** Er is een `prefers-reduced-motion`-blok.
 - **AC-12** Geen `:invalid`-styling die al bij laden rood toont (gebruik `:user-invalid`).
 - **AC-13** Geen projectfoto dubbel op de pagina (logo uitgezonderd).
+- **AC-14** Structured data volgt de Google-richtlijnen: geen `aggregateRating` (eigen/overgenomen reviews komen niet in aanmerking), geen `geo` die naar Amsterdam wijst, `areaServed` als plaatsen.
 
 Handmatig / in browser (Playwright) bij 390, 768 en 1440 px:
 
@@ -180,7 +183,24 @@ Handmatig / in browser (Playwright) bij 390, 768 en 1440 px:
 - **AC-23** Zonder JavaScript is alle inhoud zichtbaar en werkt het formulier.
 - **AC-24** Contrast tekst WCAG AA (navy/wit, amber-donker/wit, wit/navy).
 
-## 9. Wijzigingslog
+## 9. Onderzoek (oktober 2026) — wat werkt voor een klein aannemersbedrijf
+
+Samenvatting van drie onderzoeken (conversie, lokale SEO, concurrenten in Arnhem/Nijmegen). Volledige versie in het Project-document `claude/onderzoek-website-aanpak.md`.
+
+Doorgevoerd in 2.1: reviewscore mét aantal en platform in de hero, korter begeleid formulier, WhatsApp met vooringevuld bericht en foto-oproep,
+voor/na-foto's, schema zonder `aggregateRating`/Amsterdam-`geo`, link naar de officiële Vergunningcheck.
+
+Nog te doen (vraagt informatie of een besluit van de eigenaar):
+1. Google Bedrijfsprofiel op een Arnhems werkadres (verborgen), servicegebieden per plaats.
+2. Google-reviews actief vragen na elke klus (QR/link), Werkspot als tweede.
+3. Prijsindicatie op basis van eigen projecten ("aanbouw 3×4 m vanaf € …").
+4. Eigenaar met naam en foto; verzekeringen en eventueel keurmerk (BouwGarant) alleen als ze echt gelden.
+5. Aparte pagina's per dienst (aanbouw, renovatie, verbouwing, dak); stadspagina's alleen met echte lokale projecten.
+6. Garantievoorwaarden concreet maken (materiaal én arbeid?) en eventueel betaling in termijnen noemen.
+
+## 10. Wijzigingslog
+
+- **2.1** — Geen dubbele foto's, voor/na-schuif aanbouw, onderzoeksadviezen doorgevoerd (zie §9).
 
 - **2.0** — Herontwerp: projectkiezer, bouwplanning, projectgalerij met lightbox, één beloftesectie (was drie keer herhaald),
   zichtbare formulierlabels + inline verzenden, SVG i.p.v. emoji, rechte hoeken, menu-bug op desktop opgelost,
