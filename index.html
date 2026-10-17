@@ -196,6 +196,30 @@ html.js .panel[hidden]{display:none}
 .compare-tag{position:absolute;top:16px;padding:6px 12px;font-size:var(--fs-small);font-weight:600;background:var(--ink);color:var(--on-dark);pointer-events:none}
 .compare-tag.before{right:16px}
 .compare-tag.after{left:16px;background:var(--accent);color:var(--ink)}
+/* bouwverhaal (scroll-story) */
+.story-steps{display:grid;gap:48px}
+.story-n{display:block;font-size:var(--fs-small);font-weight:600;color:var(--accent-dark);margin-bottom:8px}
+.story-step h4{font-family:var(--head);font-weight:800;font-size:var(--fs-statement);letter-spacing:-.02em;line-height:1.1}
+.story-step p{color:var(--ink-2);margin:10px 0 20px;max-width:40ch}
+.story-step .shot{aspect-ratio:4/3}
+.story-up{color:var(--accent-dark);margin-top:16px}
+.story-stage{display:none}
+html.js .story{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(24px,5vw,72px);align-items:start}
+html.js .story-steps{gap:0}
+html.js .story-step{min-height:72vh;display:flex;flex-direction:column;justify-content:center;opacity:.32;transition:opacity .45s var(--ease)}
+html.js .story-step.on{opacity:1}
+html.js .story-step .shot{display:none}
+html.js .story-stage{display:block;position:sticky;top:max(24px,calc(50vh - min(32vh,300px)));height:min(64vh,600px);overflow:hidden;background:var(--bg-soft)}
+.story-stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;scale:1.04;transition:opacity .7s var(--ease),scale 1.2s var(--ease)}
+.story-stage img.on{opacity:1;scale:1}
+.story-stage span{position:absolute;left:0;right:0;bottom:0;padding:44px 16px 12px;font-size:var(--fs-small);font-weight:500;color:var(--on-dark);background:linear-gradient(transparent,rgba(11,18,32,.78))}
+/* projectfoto's openen zich bij het scrollen (alleen waar de browser dit ondersteunt) */
+@supports (animation-timeline:view()){
+  @media (prefers-reduced-motion:no-preference){
+    .proj .shot,.compare{animation:unveil linear both;animation-timeline:view(block);animation-range:entry 0% cover 30%}
+    @keyframes unveil{from{clip-path:inset(9% 5% 9% 5%);opacity:.4}to{clip-path:inset(0 0 0 0);opacity:1}}
+  }
+}
 .mosaic{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:repeat(2,minmax(0,1fr));gap:8px;aspect-ratio:16/8.4}
 .mosaic .shot:first-child{grid-row:1/3}
 .mosaic .shot:last-child{grid-column:2/4}
@@ -368,6 +392,7 @@ html.js .panel[hidden]{display:none}
   .strip{grid-template-columns:repeat(5,72%);overflow-x:auto;scroll-snap-type:x mandatory;margin-inline:calc(var(--gutter) * -1);padding-inline:var(--gutter);scrollbar-width:none}
   .strip .shot{scroll-snap-align:start}
   .strip,html.js .tabs{overscroll-behavior-x:contain}
+  .strip .shot{animation:none}
   .foot-cols{grid-template-columns:1fr 1fr}
   .foot-cols>div:first-child{grid-column:1/-1}
 }
@@ -379,6 +404,11 @@ html.js .panel[hidden]{display:none}
   .mosaic .shot:first-child{grid-row:auto;grid-column:1/-1}
   .mosaic .shot:last-child{grid-column:1/-1}
   .pair,.trio{grid-template-columns:1fr}
+  html.js .story{grid-template-columns:1fr;gap:0}
+  html.js .story-stage{order:-1;top:8px;height:42vh;z-index:2}
+  html.js .story-step{min-height:72vh;justify-content:flex-end;padding-bottom:16vh}
+  html.js .story-stage{box-shadow:0 12px 24px -12px rgba(11,18,32,.35)}
+
   .compare{aspect-ratio:4/3}
   .figures{grid-template-columns:1fr 1fr}
   .figures li{padding:20px}
@@ -577,11 +607,30 @@ html.js .panel[hidden]{display:none}
     </div>
 
     <div class="proj" id="proj-bijgebouw">
-      <div class="proj-title" data-reveal><h3>Tuinkamer, Doetinchem</h3><p>Van casco met houten dakbalken tot overkapping en zwarte gevelbekleding. Het eindresultaat met glazen schuifwanden ziet u bovenaan deze pagina.</p></div>
-      <div class="trio">
-        <a class="shot" href="doetinchem/doetinchem-4.webp"><figure><img src="doetinchem/doetinchem-4.webp" width="1079" height="810" loading="lazy" decoding="async" alt="Casco van het bijgebouw met kalkzandsteen muren en houten dakbalken"><figcaption>Casco en dakbalken</figcaption></figure></a>
-        <a class="shot" href="doetinchem/doetinchem-1.webp"><figure><img src="doetinchem/doetinchem-1.webp" width="1078" height="810" loading="lazy" decoding="async" alt="De overkapping staat, nog zonder glazen wanden"><figcaption>Overkapping staat</figcaption></figure></a>
-        <a class="shot" href="doetinchem/doetinchem-2.webp"><figure><img src="doetinchem/doetinchem-2.webp" width="1079" height="608" loading="lazy" decoding="async" alt="Zwarte verticale gevelbekleding van het bijgebouw tussen hagen"><figcaption>Zwarte gevelbekleding</figcaption></figure></a>
+      <div class="proj-title" data-reveal><h3>Tuinkamer, Doetinchem</h3><p>Scroll door de bouw: van casco tot gevel. Het eindresultaat met glazen schuifwanden ziet u bovenaan deze pagina.</p></div>
+      <div class="story">
+        <ol class="story-steps">
+          <li class="story-step">
+            <span class="story-n">Stap 1 van 3</span>
+            <h4>Het casco staat</h4>
+            <p>Kalkzandsteen muren en houten dakbalken. Vanaf hier is de vorm van de tuinkamer zichtbaar.</p>
+            <a class="shot" href="doetinchem/doetinchem-4.webp"><figure><img src="doetinchem/doetinchem-4.webp" width="1079" height="810" loading="lazy" decoding="async" alt="Casco van de tuinkamer met kalkzandsteen muren en houten dakbalken"><figcaption>Casco en dakbalken</figcaption></figure></a>
+          </li>
+          <li class="story-step">
+            <span class="story-n">Stap 2 van 3</span>
+            <h4>Dak en overkapping dicht</h4>
+            <p>Het platte dak met de brede zwarte dakrand is klaar. De voorkant is nog open.</p>
+            <a class="shot" href="doetinchem/doetinchem-1.webp"><figure><img src="doetinchem/doetinchem-1.webp" width="1078" height="810" loading="lazy" decoding="async" alt="De overkapping staat, nog zonder glazen wanden"><figcaption>Overkapping staat</figcaption></figure></a>
+          </li>
+          <li class="story-step">
+            <span class="story-n">Stap 3 van 3</span>
+            <h4>Gevel afgewerkt</h4>
+            <p>Zwarte verticale gevelbekleding, strak tussen de hagen. Daarna volgen de glazen schuifwanden.</p>
+            <a class="shot" href="doetinchem/doetinchem-2.webp"><figure><img src="doetinchem/doetinchem-2.webp" width="1079" height="608" loading="lazy" decoding="async" alt="Zwarte verticale gevelbekleding van de tuinkamer tussen hagen"><figcaption>Zwarte gevelbekleding</figcaption></figure></a>
+            <a class="link story-up" href="#home"><span>Bekijk het eindresultaat</span><svg class="i"><use href="#i-arrow"/></svg></a>
+          </li>
+        </ol>
+        <div class="story-stage" aria-hidden="true"></div>
       </div>
     </div>
 
@@ -858,6 +907,31 @@ html.js .panel[hidden]{display:none}
     img.classList.add('fade');
     img.addEventListener('load', function(){ img.classList.add('loaded'); }, {once: true});
     img.addEventListener('error', function(){ img.classList.add('loaded'); }, {once: true});
+  });
+
+  // Bouwverhaal: vaste foto wisselt mee met de stap die in beeld is
+  $$('.story').forEach(function(st){
+    var steps = $$('.story-step', st), stage = $('.story-stage', st), imgs = [];
+    steps.forEach(function(step, i){
+      var src = $('img', step), cap = $('figcaption', step);
+      var im = document.createElement('img');
+      im.src = src.getAttribute('src'); im.alt = ''; im.width = src.width; im.height = src.height; im.loading = 'lazy'; im.decoding = 'async';
+      stage.appendChild(im); imgs.push(im);
+      if (i === steps.length - 1) { var c = document.createElement('span'); stage.appendChild(c); stage._cap = c; }
+      step._cap = cap ? cap.textContent : '';
+    });
+    function show(i){
+      steps.forEach(function(s, j){ s.classList.toggle('on', i === j); });
+      imgs.forEach(function(im, j){ im.classList.toggle('on', i === j); });
+      if (stage._cap) stage._cap.textContent = steps[i]._cap;
+    }
+    show(0);
+    if ('IntersectionObserver' in window) {
+      var so = new IntersectionObserver(function(es){
+        es.forEach(function(e){ if (e.isIntersecting) show(steps.indexOf(e.target)); });
+      }, {rootMargin: '-45% 0px -45% 0px'});
+      steps.forEach(function(s){ so.observe(s); });
+    }
   });
 
   // Gefaseerd in beeld

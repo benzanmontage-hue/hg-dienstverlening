@@ -142,6 +142,8 @@ zonder JS: gewone POST. Honeypot-veld `_gotcha`. Privacy-akkoord verplicht.
 - Foto's faden in zodra ze geladen zijn; vaste breedte/hoogte, dus niets verspringt (CLS 0).
 - FAQ-antwoorden klappen vloeiend open (waar de browser dat ondersteunt).
 - Horizontale fotostroken en tabs triggeren geen "terug"-veeg van de browser.
+- **Bouwverhaal** (Tuinkamer, Doetinchem): drie stappen scrollen langs een vastgezette foto die meewisselt (IntersectionObserver, werkt in alle browsers). Zonder JS: stappen met eigen foto onder elkaar.
+- **Projectfoto's openen zich** bij het inscrollen (CSS `animation-timeline: view()`); alleen in browsers die dat ondersteunen en zonder "minder beweging", anders statisch.
 
 ### 6.7 Mobiele belbalk
 Onder 640px vast onderaan: Bellen · WhatsApp · Offerte. Houdt rekening met `safe-area-inset-bottom`.
