@@ -140,16 +140,16 @@ html.js .tabs{display:flex;flex-direction:column;gap:4px}
 html.js .panels{gap:0}
 html.js .panel[hidden]{display:none}
 .panel{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px 40px;align-content:start}
-.panel-img{grid-column:1/-1;margin:0;aspect-ratio:16/9;overflow:hidden;background:var(--bg-soft)}
-.panel-img img{width:100%;height:100%;object-fit:cover}
-.panel h3{grid-column:1/-1;font-size:var(--fs-statement);font-weight:800}
+.panel h3{grid-column:1/-1;font-size:var(--fs-h2);font-weight:800}
 .panel p{color:var(--ink-2)}
 .panel dl{display:grid;gap:18px}
 .panel dt{font-weight:600;font-size:var(--fs-small);color:var(--muted);margin-bottom:6px}
 .panel dd li{display:flex;gap:10px;align-items:flex-start;padding:3px 0}
 .panel dd .i{color:var(--accent-dark);margin-top:.2em}
-.panel .btn{justify-self:start;grid-column:1/-1}
-html.js .panel h3{grid-row:2}
+.panel-actions{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;gap:12px 28px;margin-top:8px}
+.panel-actions .link{color:var(--accent-dark)}
+.panel{background:var(--bg-soft);padding:clamp(24px,3.5vw,48px)}
+.panel p{font-size:1.125rem}
 
 /* ---------- werkwijze / bouwplanning ---------- */
 .plan{display:grid;gap:4px}
@@ -175,6 +175,19 @@ html.js .panel h3{grid-row:2}
 .shot:hover img{transform:scale(1.035)}
 .shot figcaption{position:absolute;left:0;right:0;bottom:0;padding:44px 16px 12px;font-size:var(--fs-small);font-weight:500;background:linear-gradient(transparent,rgba(11,18,32,.78))}
 .shot figure{height:100%;margin:0}
+.compare{position:relative;aspect-ratio:16/9;max-width:100%;overflow:hidden;background:var(--bg-soft);user-select:none;touch-action:pan-y}
+.compare img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.compare-after{position:absolute;inset:0;clip-path:inset(0 calc(100% - var(--pos)) 0 0)}
+.compare-handle{position:absolute;top:0;bottom:0;left:var(--pos);width:4px;margin-left:-2px;background:var(--accent);pointer-events:none}
+.compare-handle::before{content:'';position:absolute;top:50%;left:50%;width:56px;height:56px;margin:-28px 0 0 -28px;background:var(--accent)}
+.compare-handle .i{position:absolute;top:50%;margin-top:-.575em;color:var(--ink);width:22px;height:22px;margin-top:-11px}
+.compare-handle .i:first-of-type{right:6px}
+.compare-handle .i:last-of-type{left:6px}
+.compare input{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:ew-resize;-webkit-appearance:none;appearance:none}
+.compare input:focus-visible~.compare-handle,.compare:has(input:focus-visible) .compare-handle{outline:3px solid var(--on-dark);outline-offset:0}
+.compare-tag{position:absolute;top:16px;padding:6px 12px;font-size:var(--fs-small);font-weight:600;background:var(--ink);color:var(--on-dark);pointer-events:none}
+.compare-tag.before{right:16px}
+.compare-tag.after{left:16px;background:var(--accent);color:var(--ink)}
 .mosaic{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:repeat(2,minmax(0,1fr));gap:8px;aspect-ratio:16/8.4}
 .mosaic .shot:first-child{grid-row:1/3}
 .mosaic .shot:last-child{grid-column:2/4}
@@ -331,12 +344,12 @@ html.js .panel h3{grid-row:2}
 @media (max-width:720px){
   .head-split,.proj-title{grid-template-columns:1fr}
   .panel{grid-template-columns:1fr}
-  .panel-img{aspect-ratio:4/3}
   .mosaic{grid-template-columns:1fr 1fr;grid-template-rows:auto;aspect-ratio:auto}
   .mosaic .shot{aspect-ratio:4/3}
   .mosaic .shot:first-child{grid-row:auto;grid-column:1/-1}
   .mosaic .shot:last-child{grid-column:1/-1}
   .pair{grid-template-columns:1fr}
+  .compare{aspect-ratio:4/3}
   .figures{grid-template-columns:1fr 1fr}
   .figures li{padding:20px}
   .quotes-sm{grid-template-columns:1fr}
@@ -429,7 +442,6 @@ html.js .panel h3{grid-row:2}
       </div>
       <div class="panels">
         <article class="panel" id="p-aanbouw" role="tabpanel" aria-labelledby="tab-aanbouw">
-          <figure class="panel-img"><img src="Arnhem-3.webp" width="1600" height="1200" loading="lazy" decoding="async" alt="Gestorte betonvloer voor een aanbouw aan een rijtjeswoning in Arnhem"></figure>
           <h3>Aanbouw &amp; uitbouw</h3>
           <div>
             <p>Meer ruimte nodig voor uw gezin? Wij bouwen een strakke aanbouw of uitbouw die naadloos aansluit op uw woning: van fundering tot dak en afwerking.</p>
@@ -439,10 +451,9 @@ html.js .panel h3{grid-row:2}
             <div><dt>Doorlooptijd</dt><dd>Meestal 6 tot 12 weken</dd></div>
             <div><dt>Garantie</dt><dd>Langer dan 2 jaar op constructiewerk</dd></div>
           </dl>
-          <a href="#contact" class="btn btn-dark" data-type="aanbouw">Offerte voor een aanbouw <svg class="i"><use href="#i-arrow"/></svg></a>
+          <div class="panel-actions"><a href="#contact" class="btn btn-dark" data-type="aanbouw">Offerte voor een aanbouw <svg class="i"><use href="#i-arrow"/></svg></a><a class="link" href="#proj-aanbouw"><span>Bekijk een aanbouw van ons</span><svg class="i"><use href="#i-arrow"/></svg></a></div>
         </article>
         <article class="panel" id="p-renovatie" role="tabpanel" aria-labelledby="tab-renovatie">
-          <figure class="panel-img"><img src="Arnhem-4.webp" width="1600" height="1200" loading="lazy" decoding="async" alt="Woonkamer tijdens een renovatie, met nieuwe wanden en een grote schuifpui"></figure>
           <h3>Renovatie</h3>
           <div>
             <p>Badkamer of keuken verouderd? Wij moderniseren met behoud van karakter, met een vaste prijs vooraf en één aanspreekpunt van begin tot eind.</p>
@@ -452,10 +463,9 @@ html.js .panel h3{grid-row:2}
             <div><dt>Doorlooptijd</dt><dd>Kleine klus vaak binnen een week, complete renovatie 6 tot 12 weken</dd></div>
             <div><dt>Garantie</dt><dd>Minimaal 2 jaar</dd></div>
           </dl>
-          <a href="#contact" class="btn btn-dark" data-type="renovatie">Offerte voor een renovatie <svg class="i"><use href="#i-arrow"/></svg></a>
+          <div class="panel-actions"><a href="#contact" class="btn btn-dark" data-type="renovatie">Offerte voor een renovatie <svg class="i"><use href="#i-arrow"/></svg></a><a class="link" href="#proj-interieur"><span>Bekijk interieurwerk</span><svg class="i"><use href="#i-arrow"/></svg></a></div>
         </article>
         <article class="panel" id="p-verbouwing" role="tabpanel" aria-labelledby="tab-verbouwing">
-          <figure class="panel-img"><img src="doetinchem/doetinchem-4.webp" width="1079" height="810" loading="lazy" decoding="async" alt="Casco van een bijgebouw met kalkzandsteen muren en houten dakbalken"></figure>
           <h3>Complete verbouwing</h3>
           <div>
             <p>Van verouderd pand naar uw droomwoning. Wij regelen de totale transformatie: sloop, opbouw, planning en oplevering, met ons eigen vakteam.</p>
@@ -465,10 +475,9 @@ html.js .panel h3{grid-row:2}
             <div><dt>Doorlooptijd</dt><dd>Meestal 6 tot 12 weken</dd></div>
             <div><dt>Garantie</dt><dd>Minimaal 2 jaar, langer op constructiewerk</dd></div>
           </dl>
-          <a href="#contact" class="btn btn-dark" data-type="verbouwing">Offerte voor een verbouwing <svg class="i"><use href="#i-arrow"/></svg></a>
+          <div class="panel-actions"><a href="#contact" class="btn btn-dark" data-type="verbouwing">Offerte voor een verbouwing <svg class="i"><use href="#i-arrow"/></svg></a><a class="link" href="#proj-bijgebouw"><span>Bekijk een compleet bouwproject</span><svg class="i"><use href="#i-arrow"/></svg></a></div>
         </article>
         <article class="panel" id="p-onderhoud" role="tabpanel" aria-labelledby="tab-onderhoud">
-          <figure class="panel-img"><img src="dak/dak-1.webp" width="1079" height="810" loading="lazy" decoding="async" alt="Plat dak met nieuwe bitumen dakbedekking en een lichtkoepel"></figure>
           <h3>Dak &amp; onderhoud</h3>
           <div>
             <p>Een lekkage, een losse tegel of een dak dat aan vervanging toe is? Wij zorgen voor snelle opvolging, dakrenovatie en preventief onderhoud.</p>
@@ -478,7 +487,7 @@ html.js .panel h3{grid-row:2}
             <div><dt>Doorlooptijd</dt><dd>Kleine reparaties vaak binnen een dag</dd></div>
             <div><dt>Garantie</dt><dd>Minimaal 2 jaar</dd></div>
           </dl>
-          <a href="#contact" class="btn btn-dark" data-type="onderhoud">Offerte voor dak of onderhoud <svg class="i"><use href="#i-arrow"/></svg></a>
+          <div class="panel-actions"><a href="#contact" class="btn btn-dark" data-type="onderhoud">Offerte voor dak of onderhoud <svg class="i"><use href="#i-arrow"/></svg></a><a class="link" href="#proj-daken"><span>Bekijk onze daken</span><svg class="i"><use href="#i-arrow"/></svg></a></div>
         </article>
       </div>
     </div>
@@ -512,25 +521,28 @@ html.js .panel h3{grid-row:2}
       <p class="lead">Foto's van echte projecten uit de regio, gemaakt op de bouwplaats. Klik op een foto om hem groot te bekijken.</p>
     </div>
 
-    <div class="proj">
-      <div class="proj-title" data-reveal><h3>Tuinbijgebouw, Doetinchem</h3><p>Van casco met houten dakbalken tot een bijgebouw met overkapping en zwarte gevelbekleding.</p></div>
-      <div class="mosaic">
-        <a class="shot" href="doetinchem/doetinchem-1.webp"><figure><img src="doetinchem/doetinchem-1.webp" width="1078" height="810" loading="lazy" decoding="async" alt="Tuinbijgebouw met overkapping"><figcaption>Bijgebouw met overkapping</figcaption></figure></a>
-        <a class="shot" href="doetinchem/doetinchem-4.webp"><figure><img src="doetinchem/doetinchem-4.webp" width="1079" height="810" loading="lazy" decoding="async" alt="Casco van het bijgebouw met kalkzandsteen muren"><figcaption>Casco en dakbalken</figcaption></figure></a>
-        <a class="shot" href="doetinchem/doetinchem-3.webp"><figure><img src="doetinchem/doetinchem-3.webp" width="1079" height="811" loading="lazy" decoding="async" alt="Dakisolatieplaten tussen de houten balken van het bijgebouw"><figcaption>Dakisolatie aangebracht</figcaption></figure></a>
+    <div class="proj" id="proj-aanbouw">
+      <div class="proj-title" data-reveal><h3>Aanbouw, Arnhem</h3><p>Sleep de schuif naar rechts: van wapening en bekisting voor de fundering naar de gestorte vloer, op dezelfde plek.</p></div>
+      <div class="compare" style="--pos:20%">
+        <img src="aanbouw-voor.webp" width="1200" height="900" loading="lazy" decoding="async" alt="Voor: wapening en bekisting voor de fundering van de aanbouw">
+        <div class="compare-after"><img src="aanbouw-na.webp" width="1200" height="900" loading="lazy" decoding="async" alt="Na: de gestorte betonvloer van de aanbouw"></div>
+        <span class="compare-tag before">Fundering</span>
+        <span class="compare-tag after">Vloer gestort</span>
+        <span class="compare-handle" aria-hidden="true"><svg class="i"><use href="#i-left"/></svg><svg class="i"><use href="#i-right"/></svg></span>
+        <label class="visually-hidden" for="compareRange">Vergelijk fundering en gestorte vloer</label>
+        <input type="range" id="compareRange" min="0" max="100" value="20" step="1">
+      </div>
+    </div>
+
+    <div class="proj" id="proj-bijgebouw">
+      <div class="proj-title" data-reveal><h3>Tuinbijgebouw, Doetinchem</h3><p>Van casco met houten dakbalken naar zwarte gevelbekleding. Het eindresultaat met overkapping ziet u bovenaan deze pagina.</p></div>
+      <div class="pair">
+        <a class="shot" href="doetinchem/doetinchem-4.webp"><figure><img src="doetinchem/doetinchem-4.webp" width="1079" height="810" loading="lazy" decoding="async" alt="Casco van het bijgebouw met kalkzandsteen muren en houten dakbalken"><figcaption>Casco en dakbalken</figcaption></figure></a>
         <a class="shot" href="doetinchem/doetinchem-2.webp"><figure><img src="doetinchem/doetinchem-2.webp" width="1079" height="608" loading="lazy" decoding="async" alt="Zwarte verticale gevelbekleding van het bijgebouw tussen hagen"><figcaption>Zwarte gevelbekleding</figcaption></figure></a>
       </div>
     </div>
 
-    <div class="proj">
-      <div class="proj-title" data-reveal><h3>Aanbouw, Arnhem</h3><p>De basis van een aanbouw: wapening en bekisting voor de fundering, daarna de gestorte vloer.</p></div>
-      <div class="pair">
-        <a class="shot" href="Arnhem-1.webp"><figure><img src="Arnhem-1.webp" width="1600" height="1200" loading="lazy" decoding="async" alt="Bekisting en wapening voor de fundering van een aanbouw"><figcaption>Fundering en wapening</figcaption></figure></a>
-        <a class="shot" href="Arnhem-3.webp"><figure><img src="Arnhem-3.webp" width="1600" height="1200" loading="lazy" decoding="async" alt="Vers gestorte betonvloer van de aanbouw"><figcaption>Vloer gestort</figcaption></figure></a>
-      </div>
-    </div>
-
-    <div class="proj">
+    <div class="proj" id="proj-daken">
       <div class="proj-title" data-reveal><h3>Platte daken</h3><p>Dakrenovatie, nieuwe bitumen dakbedekking, dakisolatie en goten.</p></div>
       <div class="strip">
         <a class="shot" href="dak/dak-4.webp"><figure><img src="dak/dak-4.webp" width="1079" height="810" loading="lazy" decoding="async" alt="Nieuwe dakbedekking op een plat dak"><figcaption>Nieuwe dakbedekking</figcaption></figure></a>
@@ -541,7 +553,7 @@ html.js .panel h3{grid-row:2}
       </div>
     </div>
 
-    <div class="proj">
+    <div class="proj" id="proj-interieur">
       <div class="proj-title" data-reveal><h3>Interieur</h3><p>Nieuwe wanden, plafonds en afwerking binnen.</p></div>
       <div class="pair">
         <a class="shot" href="Arnhem-4.webp"><figure><img src="Arnhem-4.webp" width="1600" height="1200" loading="lazy" decoding="async" alt="Woonkamer tijdens de renovatie"><figcaption>Woonkamer in renovatie</figcaption></figure></a>
@@ -769,6 +781,13 @@ html.js .panel h3{grid-row:2}
       var sel = $('#projectType'); if (sel) sel.value = a.getAttribute('data-type');
       setTimeout(function(){ var n = $('#name'); if (n) n.focus({preventScroll:true}); }, 600);
     });
+  });
+
+  // Voor/na-schuif
+  $$('.compare').forEach(function(c){
+    var r = $('input', c);
+    function set(){ c.style.setProperty('--pos', r.value + '%'); }
+    r.addEventListener('input', set); set();
   });
 
   // Gefaseerd in beeld

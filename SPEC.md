@@ -123,7 +123,9 @@ sluit bij Escape, bij een linkklik en bij resize naar desktop.
 Een `<ol>` met zes fasen. Elke fase toont naam, uitleg, "wanneer", en een balk in een 6-koloms raster
 die de volgorde in tijd verbeeldt. Balken groeien één keer in beeld (de signatuur-animatie).
 
-### 6.4 Projecten en lightbox (`#projecten`)
+### 6.4 Projecten, voor/na-schuif en lightbox (`#projecten`)
+De aanbouw in Arnhem is een voor/na-schuif: links groeit 'vloer gestort' over 'fundering' als je naar rechts sleept.
+Bediening via een `<input type="range">` (muis, touch, pijltjestoetsen), startpositie 20%.
 Elke foto is een link naar het bestand zelf (werkt zonder JS). Met JS opent een `<dialog>`-lightbox met
 vorige/volgende, Escape sluit, focus keert terug. Geen automatisch draaiende slideshow.
 
@@ -139,11 +141,15 @@ Onder 640px vast onderaan: Bellen · WhatsApp · Offerte. Houdt rekening met `sa
 
 | Bestand | Inhoud | Gebruik |
 |---|---|---|
-| `doetinchem/doetinchem-1.webp` | Tuinbijgebouw met overkapping, opgeleverd | Hero (preload) + uitgelicht project |
-| `doetinchem/doetinchem-2/3/4.webp` | Zelfde project: gevel, dakisolatie, casco | Uitgelicht project |
-| `Arnhem-1.webp`, `Arnhem-3.webp` | Aanbouw Arnhem: wapening fundering, gestorte vloer | Projecten, kiezer |
-| `dak/dak-1…5.webp` | Platte daken (bitumen, lichtkoepel) | Projecten, kiezer |
-| `Arnhem-4.webp`, `amsterdam-1.webp` | Interieur in renovatie, afgewerkte gang | Projecten, kiezer |
+| `doetinchem/doetinchem-1.webp` | Tuinbijgebouw met overkapping | Alleen hero (preload) |
+| `doetinchem/doetinchem-4.webp`, `-2.webp` | Zelfde project: casco, gevel | Project "Tuinbijgebouw" |
+| `aanbouw-voor.webp`, `aanbouw-na.webp` | Aanbouw Arnhem: fundering → gestorte vloer, op elkaar uitgelijnd | Voor/na-schuif |
+| `dak/dak-1…5.webp` | Platte daken | Project "Platte daken" |
+| `Arnhem-4.webp`, `amsterdam-1.webp` | Interieur in renovatie, afgewerkte gang | Project "Interieur" |
+| `Arnhem-1.webp`, `Arnhem-3.webp`, `doetinchem/doetinchem-3.webp` | Bronbestanden / bijna-dubbel | Niet op de pagina |
+
+**Elke projectfoto staat maximaal één keer op de pagina** (de projectkiezer toont geen foto's maar linkt naar het project).
+`aanbouw-voor/na.webp` zijn gemaakt uit `Arnhem-1/3.webp` met een perspectiefcorrectie (OpenCV-homografie) en een gezamenlijke 4:3-uitsnede.
 
 Regels: elke `<img>` heeft `alt`, `width`, `height`; alles onder de vouw `loading="lazy"`.
 `dak/dak-3.webp` is bijgesneden (was een telefoon-screenshot met chat-interface).
@@ -164,6 +170,7 @@ Automatisch (`node scripts/check-spec.mjs`):
 - **AC-10** Elke interne `href="#…"` verwijst naar een bestaand `id`.
 - **AC-11** Er is een `prefers-reduced-motion`-blok.
 - **AC-12** Geen `:invalid`-styling die al bij laden rood toont (gebruik `:user-invalid`).
+- **AC-13** Geen projectfoto dubbel op de pagina (logo uitgezonderd).
 
 Handmatig / in browser (Playwright) bij 390, 768 en 1440 px:
 

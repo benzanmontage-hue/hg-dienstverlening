@@ -103,6 +103,11 @@ check('AC-11 prefers-reduced-motion', /prefers-reduced-motion/.test(css));
 // AC-12
 check('AC-12 geen :invalid bij laden', !/(^|[^-]):invalid/.test(css.replace(/:user-invalid/g, '')));
 
+// AC-13
+const srcs = imgs.map((t) => (t.match(/\ssrc="([^"]+)"/) || [, ''])[1]).filter((x) => x && !/logo/.test(x));
+const dup = srcs.filter((x, i) => srcs.indexOf(x) !== i);
+check('AC-13 geen dubbele projectfoto', !dup.length, [...new Set(dup)].join(', '));
+
 // Rapport
 let fail = 0;
 for (const r of results) {
